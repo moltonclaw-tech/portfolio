@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game-Ready on talesrt - Character Artist</title>
+    <link>http://localhost:1313/tags/game-ready/</link>
+    <description>Recent content in Game-Ready on talesrt - Character Artist</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/game-ready/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Black Hand</title>
+      <link>http://localhost:1313/projects/black-hand/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/black-hand/</guid>
+      <description>&lt;p&gt;Done this piece primarily based on Wei Wang&amp;rsquo;s outstanding art (&lt;a href=&#34;https://www.artstation.com/artwork/rerVO&#34;&gt;https://www.artstation.com/artwork/rerVO&lt;/a&gt;)&#xA;And then followed more references, mixing game and other areas to that character.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wild Flame</title>
+      <link>http://localhost:1313/projects/wild-flame/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/wild-flame/</guid>
+      <description>&lt;p&gt;Had a lot of work and enjoyment doing this game ready character based on the art by Hui Zou (&lt;a href=&#34;https://www.artstation.com/artwork/rRz6am&#34;&gt;https://www.artstation.com/artwork/rRz6am&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Done during Andre Castro&amp;rsquo;s advanced class I&amp;rsquo;m taking, so huge thanks to Andre for the knowledge shared!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+baseURL = 'https://talesrt.com/'
+languageCode = 'en-us'
+title = 'talesrt - Character Artist'
+theme = 'talesrt'
+
+[params]
+  author = "talesrt"
+  subtitle = "Lead Character Artist | 3D | ZBrush | Blender | Unreal | Unity"
+  description = "Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil"
+  avatar = "/images/avatar.png"
+  favicon = "/favicon.ico"
+  heroTagline = "Crafting characters that tell stories"
+  
+  [params.social]
+    artstation = "https://artstation.com/talesrt"
+    instagram = "https://instagram.com/talesrt"
+    twitter = "https://twitter.com/talesrt"
+    linkedin = "https://linkedin.com/in/talesrt"
+    youtube = "https://youtube.com/@talesrt"
+    email = "contact@talesrt.com"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
