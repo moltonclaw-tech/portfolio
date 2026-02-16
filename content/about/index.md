@@ -1,76 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | talesrt - Character Artist</title>
-    <meta name="description" content="Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil">
-    
-    
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    
-    <link rel="stylesheet" href="/css/main.min.css">
-</head>
-<body>
-    
-    <aside class="sidebar">
-        <div class="sidebar-top">
-            
-            <img src="/images/avatar.png" alt="talesrt" class="sidebar-avatar">
-            
-            
-            <h1 class="sidebar-name">talesrt</h1>
-            <p class="sidebar-subtitle">Lead Character Artist
-3D | ZBrush | Blender | Unreal | Unity</p>
-            
-            <nav class="sidebar-nav">
-                <a href="/" class="">Work</a>
-                <a href="/about/">About</a>
-                <a href="/blog/">Blog</a>
-                <a href="/tutorials/">Tutorials</a>
-                <a href="/contact/">Contact</a>
-            </nav>
-        </div>
-        
-        <div class="sidebar-footer">
-            <div class="sidebar-social">
-                
-                <a href="https://instagram.com/talesrt" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                
-                
-                <a href="https://artstation.com/talesrt" target="_blank" rel="noopener" aria-label="ArtStation"><i class="fab fa-artstation"></i></a>
-                
-                
-                <a href="https://twitter.com/talesrt" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                
-                
-                <a href="https://linkedin.com/in/talesrt" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                
-                
-                <a href="https://youtube.com/@talesrt" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                
-                
-                <a href="mailto:contact@talesrt.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                
-            </div>
-        </div>
-    </aside>
+---
+title: "About"
+date: 2026-02-13
+description: "About talesrt - Lead Character Artist"
+---
 
-    
-    <main class="main-content">
-        
-  <div class="about-hero">
+<div class="about-hero">
   <div class="about-hero-content">
     <h1>Creating characters that<br><span class="accent">tell stories</span></h1>
   </div>
 </div>
+
 <div class="about-section about-bio-section">
   <div class="about-grid">
     <div class="about-photo">
@@ -85,6 +24,7 @@
     </div>
   </div>
 </div>
+
 <div class="about-section games-section">
   <h2>Shipped Titles</h2>
   <div class="games-list">
@@ -132,6 +72,7 @@
     </div>
   </div>
 </div>
+
 <div class="about-section timeline-section">
   <h2>Journey</h2>
   <div class="timeline">
@@ -165,6 +106,7 @@
     </div>
   </div>
 </div>
+
 <div class="about-section recognition-section">
   <div class="recognition-grid">
     <div class="recognition-item">
@@ -177,16 +119,8 @@
     </div>
   </div>
 </div>
+
 <div class="about-cta">
   <p>Interested in working together?</p>
   <a href="/contact/" class="cta-button">Let's Talk</a>
 </div>
-
-
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2026 talesrt. All rights reserved.</p>
-    </footer>
-</body>
-</html>

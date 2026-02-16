@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{ if eq .Section "about" }}
+  {{ .Content }}
+{{ else }}
 <article class="project-detail">
     <header class="project-header">
         <h1 class="project-title">{{ .Title }}</h1>
@@ -12,21 +15,18 @@
     </header>
 
     <div class="project-content">
-        <!-- Description -->
         {{ with .Description }}
         <div class="project-description">
             {{ . | markdownify }}
         </div>
         {{ end }}
 
-        <!-- Images Gallery -->
         {{ range .Resources.ByType "image" }}
         <figure class="project-image">
             <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
         </figure>
         {{ end }}
 
-        <!-- Videos -->
         {{ range .Params.videos }}
         <div class="project-video">
             {{ if hasPrefix . "http" }}
@@ -37,13 +37,11 @@
                 {{ else }}
                 <video controls>
                     <source src="{{ . }}" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 {{ end }}
             {{ else }}
             <video controls>
                 <source src="{{ . | relURL }}" type="video/mp4">
-                Your browser does not support the video tag.
             </video>
             {{ end }}
         </div>
@@ -59,4 +57,5 @@
         {{ end }}
     </nav>
 </article>
+{{ end }}
 {{ end }}

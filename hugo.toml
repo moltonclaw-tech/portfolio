@@ -20,6 +20,11 @@ theme = 'talesrt'
     youtube = "https://youtube.com/@talesrt"
     email = "contact@talesrt.com"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [taxonomies]
   tag = "tags"
   category = "categories"
