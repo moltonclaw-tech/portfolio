@@ -1,60 +1,20 @@
 {{ define "main" }}
+{{ $allProjects := where site.Pages "Section" "projects" }}
+{{ $actualProjects := where $allProjects "Title" "!=" "Projects" }}
+{{ $sortedProjects := sort $actualProjects "Params.importance" "desc" }}
+
 <section class="projects-grid">
-    <a href="/projects/black-hand/" class="project-card">
+    {{ range $sortedProjects }}
+    {{ $importance := .Params.importance | default 1 }}
+    {{ $class := cond (eq $importance 1) "importance-1" (cond (eq $importance 2) "importance-2" (cond (eq $importance 3) "importance-3" (cond (ge $importance 4) "importance-4" "importance-1"))) }}
+    <a href="{{ .RelPermalink }}" class="project-card {{ $class }}">
         <div class="project-thumb">
-            <img src="/thumbs/BlackHand.jpg" alt="Black Hand">
+            <img src="/thumbs/{{ .Params.thumbnail }}" alt="{{ .Title }}">
             <div class="project-overlay">
-                <h3 class="project-title">Black Hand</h3>
+                <h3 class="project-title">{{ .Title }}</h3>
             </div>
         </div>
     </a>
-    <a href="/projects/glutton/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/Glutton.jpg" alt="Glutton">
-            <div class="project-overlay">
-                <h3 class="project-title">Glutton</h3>
-            </div>
-        </div>
-    </a>
-    <a href="/projects/grave-digger/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/GraveDigger.jpg" alt="Grave Digger">
-            <div class="project-overlay">
-                <h3 class="project-title">Grave Digger</h3>
-            </div>
-        </div>
-    </a>
-    <a href="/projects/redrum/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/Redrum.jpg" alt="Redrum">
-            <div class="project-overlay">
-                <h3 class="project-title">Redrum</h3>
-            </div>
-        </div>
-    </a>
-    <a href="/projects/the-isofarian-guard/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/IsofarianGuard.jpg" alt="The Isofarian Guard">
-            <div class="project-overlay">
-                <h3 class="project-title">The Isofarian Guard</h3>
-            </div>
-        </div>
-    </a>
-    <a href="/projects/the-pilot/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/Pilot.jpg" alt="The Pilot">
-            <div class="project-overlay">
-                <h3 class="project-title">The Pilot</h3>
-            </div>
-        </div>
-    </a>
-    <a href="/projects/wild-flame/" class="project-card">
-        <div class="project-thumb">
-            <img src="/thumbs/WildFlame.jpg" alt="Wild Flame">
-            <div class="project-overlay">
-                <h3 class="project-title">Wild Flame</h3>
-            </div>
-        </div>
-    </a>
+    {{ end }}
 </section>
 {{ end }}

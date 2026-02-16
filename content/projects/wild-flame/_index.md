@@ -1,8 +1,11 @@
 ---
 title: "Wild Flame"
 date: 2026-02-13
+type: projects
 description: "Game ready character based on the art by Hui Zou. Done during Andre Castro's advanced class."
 tags: ["character", "game-ready", "zbrush", "blender"]
+importance: 3
+thumbnail: "WildFlame.jpg"
 draft: false
 ---
 

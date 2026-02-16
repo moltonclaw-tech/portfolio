@@ -1,8 +1,11 @@
 ---
 title: "The Isofarian Guard"
 date: 2026-02-13
+type: projects
 description: "Set of 50mm miniatures developed for The Isofarian Guard, the new game from Skykingdom Games!"
 tags: ["miniature", "zbrush", "game", "character"]
+importance: 2
+thumbnail: "IsofarianGuard.jpg"
 draft: false
 ---
 
