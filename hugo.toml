@@ -5,7 +5,8 @@ theme = 'talesrt'
 
 [params]
   author = "talesrt"
-  subtitle = "Lead Character Artist | 3D | ZBrush | Blender | Unreal | Unity"
+  subtitle = """Lead Character Artist
+3D | ZBrush | Blender | Unreal | Unity"""
   description = "Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil"
   avatar = "/images/avatar.png"
   favicon = "/favicon.ico"
