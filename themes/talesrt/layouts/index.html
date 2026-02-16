@@ -1,13 +1,17 @@
 {{ define "main" }}
-{{ $allProjects := where site.Pages "Section" "projects" }}
-{{ $actualProjects := where $allProjects "Title" "!=" "Projects" }}
-{{ $sortedProjects := sort $actualProjects "Params.importance" "desc" }}
-
-<section class="projects-grid">
-    {{ range $sortedProjects }}
-    {{ $importance := .Params.importance | default 1 }}
-    {{ $class := cond (eq $importance 1) "importance-1" (cond (eq $importance 2) "importance-2" (cond (eq $importance 3) "importance-3" (cond (ge $importance 4) "importance-4" "importance-1"))) }}
-    <a href="{{ .RelPermalink }}" class="project-card {{ $class }}">
+<section class="gallery-container">
+    {{ $allProjects := where site.Pages "Section" "projects" }}
+    {{ $projects := where $allProjects "Title" "!=" "Projects" }}
+    {{ $sorted := sort $projects "Params.importance" "desc" }}
+    
+    {{ range $sorted }}
+    {{ $spanClass := "span-1" }}
+    {{ if eq .Params.importance 2 }}{{ $spanClass = "span-2" }}{{ end }}
+    {{ if eq .Params.importance 3 }}{{ $spanClass = "span-3" }}{{ end }}
+    {{ if eq .Params.importance 4 }}{{ $spanClass = "span-4" }}{{ end }}
+    {{ if eq .Params.importance 6 }}{{ $spanClass = "span-6" }}{{ end }}
+    
+    <a href="{{ .RelPermalink }}" class="project-card {{ $spanClass }}" data-importance="{{ .Params.importance }}">
         <div class="project-thumb">
             <img src="/thumbs/{{ .Params.thumbnail }}" alt="{{ .Title }}">
             <div class="project-overlay">
