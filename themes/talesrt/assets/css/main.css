@@ -9,7 +9,7 @@
     --bg-tertiary: #2a3030;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
-    --accent: #df8654;
+    --accent: #de8553;
     --border: #3a4040;
     --sidebar-width: 280px;
 }
@@ -19,14 +19,14 @@ html { font-size: 16px; scroll-behavior: smooth; }
 body { font-family: sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; }
 
 /* Sidebar */
-.sidebar { position: fixed; left: 0; top: 0; width: var(--sidebar-width); height: 100vh; background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border-right: 1px solid rgba(223, 134, 84, 0.2); padding: 32px 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.sidebar { position: fixed; left: 0; top: 0; width: var(--sidebar-width); height: 100vh; background: #1f1c1a; border-right: 1px solid rgba(223, 134, 84, 0.2); padding: 32px 24px; display: flex; flex-direction: column; justify-content: space-between; }
 .sidebar-top { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
-.sidebar-avatar { width: 85px; margin-bottom: 16px; }
+.sidebar-avatar { width: 100px; height: 100px; margin-bottom: 16px; transform: translateX(12px); object-fit: contain; }
 .sidebar-name { font-family: 'Quicksand', sans-serif; font-size: 1.6rem; font-weight: 700; }
 .sidebar-subtitle { font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 24px; }
 .sidebar-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; margin-bottom: 24px; }
 .sidebar-nav a { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; padding: 8px 12px; border-radius: 4px; transition: all 0.2s; }
-.sidebar-nav a:hover, .sidebar-nav a.active { color: var(--text-primary); background: var(--bg-tertiary); }
+.sidebar-nav a:hover, .sidebar-nav a.active { color: var(--text-primary); background: var(--accent); }
 .sidebar-social { display: flex; gap: 10px; justify-content: flex-end; padding-top: 48px; }
 .sidebar-social a { font-size: 0.9rem; color: var(--text-secondary); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--bg-tertiary); transition: all 0.2s; }
 .sidebar-social a:hover { color: var(--text-primary); background: var(--accent); }
