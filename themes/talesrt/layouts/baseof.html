@@ -31,7 +31,7 @@
                 <h1 class="sidebar-name">{{ .Site.Params.author }}</h1>
             </a>
             
-            <span class="mobile-page-title">{{ .Title }}</span>
+            <span class="mobile-page-title">{{ if not .IsHome }}{{ .Title | replaceRE "^talesrt - " "" }}{{ end }}</span>
             
             <nav class="sidebar-nav">
                 <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
