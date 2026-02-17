@@ -3,9 +3,9 @@
    ============================================ */
 
 :root {
-    --bg-primary: #202626;
-    --bg-secondary: #1a1f1f;
-    --bg-tertiary: #2a3030;
+    --bg-primary: #262220;
+    --bg-secondary: #1F1B1A;
+    --bg-tertiary: #302C2A;
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --accent: #de8553;
@@ -34,6 +34,9 @@ body { font-family: sans-serif; background: var(--bg-primary); color: var(--text
 /* Main Content */
 .main-content { flex: 1; margin-left: var(--sidebar-width); padding: 0; min-height: 100vh; overflow-x: hidden; background: #1f1c1a; }
 footer { display: none; }
+
+/* Hide page title on contact page */
+.contact-page .page-title { display: none; }
 
 /* ============================================
    Editorial Grid - Square Aspect Ratio
@@ -357,4 +360,164 @@ footer { display: none; }
     color: var(--text-secondary);
     padding: 8px 0;
     border-bottom: 1px solid var(--border);
+}
+
+/* ============================================
+   Contact Page 
+   ============================================ */
+
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 48px 64px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Header */
+.contact-header {
+    margin-bottom: 48px;
+}
+
+.contact-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.contact-header .accent { color: var(--accent); }
+
+/* CTA Card */
+.contact-cta {
+    margin-bottom: auto;
+}
+
+.cta-card {
+    padding: 40px 0;
+    background: transparent;
+    border-radius: 4px;
+    height: auto;
+    text-align: left;
+}
+
+.cta-card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background: #df8a5e;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.cta-button-icon {
+    font-size: 1.2rem;
+}
+
+/* Socials - Footer */
+.contact-socials {
+    margin-top: auto;
+}
+
+.contact-socials h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.socials-grid {
+    text-align: left;
+}
+
+.social-link {
+    display: inline-block !important;
+    margin-right: 20px;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    gap: 0 !important;
+    text-decoration: none !important;
+}
+
+.social-link:hover {
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.social-icon {
+    display: inline-block !important;
+    vertical-align: middle;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.social-icon svg path {
+    fill: var(--text-secondary) !important;
+}
+
+.social-link:hover .social-icon svg path {
+    fill: var(--accent) !important;
+}
+
+.social-name {
+    display: inline !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 6px;
+    text-decoration: none !important;
+}
+
+.social-link:hover .social-name {
+    color: var(--accent) !important;
+}
+
+/* Responsive for Contact */
+@media (max-width: 1100px) {
+    .contact-grid { 
+        padding: 32px 32px;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-grid { 
+        padding: 24px 24px;
+        min-height: 100vh;
+    }
+    .cta-button { width: 100%; justify-content: center; }
 }

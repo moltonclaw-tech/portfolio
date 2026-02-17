@@ -9,7 +9,7 @@ theme = 'talesrt'
 3D | ZBrush | Blender | Unreal | Unity"""
   description = "Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil"
   avatar = "/images/avatar.png"
-  favicon = "/favicon.ico"
+  favicon = "/talesrt_logo.svg"
   heroTagline = "Crafting characters that tell stories"
   
   [params.social]

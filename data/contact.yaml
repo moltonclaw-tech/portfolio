@@ -1,0 +1,37 @@
+# Contact Information - Centralized Data
+# Update here to sync across all pages
+
+email: "contact@talesrt.com"
+
+headline: "Character Production & Creative Leadership"
+subheadline: "High-fidelity character pipelines for AA/AAA production"
+
+cta:
+  title: "Start a Conversation"
+  description: "Have a project in mind? Looking for a character artist to join your team?"
+  availability_text: "Inquire for current availability"
+
+strategic_partnership:
+  - "High-fidelity character pipelines for Unreal Engine 5"
+  - "Scaling character teams for AA/AAA production"
+  - "Stylized to Realistic asset translation"
+
+socials:
+  - name: "ArtStation"
+    url: "https://artstation.com/talesrt"
+    icon: "🎨"
+    primary: true
+    
+  - name: "LinkedIn"
+    url: "https://linkedin.com/in/talesrt"
+    icon: "💼"
+    primary: true
+    
+  - name: "Instagram"
+    url: "https://instagram.com/talesrt"
+    
+  - name: "Twitter"
+    url: "https://twitter.com/talesrt"
+    
+  - name: "YouTube"
+    url: "https://youtube.com/@talesrt"
