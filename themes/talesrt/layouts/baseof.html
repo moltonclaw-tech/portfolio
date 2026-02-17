@@ -33,6 +33,10 @@
                 <a href="/contact/">Contact</a>
                 <a href="/about/">About</a>
             </nav>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         
         <div class="sidebar-footer">
@@ -59,9 +63,54 @@
         </div>
     </aside>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <nav class="mobile-menu">
+            <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
+            <a href="/contact/">Contact</a>
+            <a href="/about/">About</a>
+            <div class="mobile-social">
+                {{ with .Site.Params.social.instagram }}
+                <a href="{{ . }}" target="_blank" rel="noopener">Instagram</a>
+                {{ end }}
+                {{ with .Site.Params.social.artstation }}
+                <a href="{{ . }}" target="_blank" rel="noopener">ArtStation</a>
+                {{ end }}
+                {{ with .Site.Params.social.twitter }}
+                <a href="{{ . }}" target="_blank" rel="noopener">Twitter</a>
+                {{ end }}
+                {{ with .Site.Params.social.linkedin }}
+                <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+                {{ end }}
+                {{ with .Site.Params.social.youtube }}
+                <a href="{{ . }}" target="_blank" rel="noopener">YouTube</a>
+                {{ end }}
+                {{ with .Site.Params.social.email }}
+                <a href="mailto:{{ . }}">Email</a>
+                {{ end }}
+            </div>
+        </nav>
+    </div>
+
     <!-- Main Content -->
     <main class="main-content">
         {{ block "main" . }}{{ end }}
     </main>
+    
+    <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+        this.classList.toggle('active');
+    });
+    
+    // Close menu when clicking overlay
+    document.querySelector('.mobile-menu-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.querySelector('.mobile-menu-toggle').classList.remove('active');
+        }
+    });
+    </script>
 </body>
 </html>
