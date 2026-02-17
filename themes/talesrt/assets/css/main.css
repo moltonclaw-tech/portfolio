@@ -627,7 +627,7 @@ footer { display: none; }
     }
     
     .name-link {
-        margin-right: auto;
+        margin-right: 0;
     }
     
     .sidebar-name {
@@ -636,11 +636,17 @@ footer { display: none; }
         margin-right: 0;
     }
     
-    .sidebar-nav {
-        display: none;
+    .mobile-page-title {
+        display: inline-block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-left: 8px;
+        margin-right: auto;
     }
     
-    .mobile-page-title {
+    .sidebar-nav {
         display: none;
     }
     
