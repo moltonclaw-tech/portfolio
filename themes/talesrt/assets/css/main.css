@@ -22,7 +22,10 @@ body { font-family: sans-serif; background: var(--bg-primary); color: var(--text
 .sidebar { position: fixed; left: 0; top: 0; width: var(--sidebar-width); height: 100vh; background: #1f1c1a; border-right: 1px solid rgba(223, 134, 84, 0.2); padding: 32px 24px; display: flex; flex-direction: column; justify-content: space-between; }
 .sidebar-top { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
 .sidebar-avatar { width: 100px; height: 100px; margin-bottom: 10px; transform: translateX(12px); object-fit: contain; }
-.sidebar-name { font-family: 'Quicksand', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+.logo-link { display: block; margin-bottom: 10px; transform: translateX(12px); }
+.name-link { text-decoration: none; }
+.sidebar-name { font-family: 'Quicksand', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); text-decoration: none; }
+.name-link:hover .sidebar-name { color: var(--accent); }
 .sidebar-subtitle { font-size: 0.75rem; color: var(--text-secondary); margin-top: -6px; margin-bottom: 24px; white-space: pre-line; }
 .sidebar-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; margin-bottom: 24px; }
 .sidebar-nav a { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; padding: 8px 12px; border-radius: 4px; transition: all 0.2s; text-decoration: none; }
@@ -614,9 +617,23 @@ footer { display: none; }
         justify-content: flex-start;
     }
     
+    .logo-link {
+        margin-right: 12px;
+    }
+    
+    .sidebar-avatar {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .name-link {
+        margin-right: auto;
+    }
+    
     .sidebar-name {
         font-size: 1rem;
-        margin-right: 8px;
+        margin-bottom: 0;
+        margin-right: 0;
     }
     
     .sidebar-nav {
@@ -624,29 +641,20 @@ footer { display: none; }
     }
     
     .mobile-page-title {
-        display: flex;
-        align-items: center;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-left: 12px;
-        margin-right: auto;
+        display: none;
     }
     
     .mobile-menu-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         background: transparent;
         border: 1px solid var(--border);
         border-radius: 4px;
         color: var(--text-secondary);
-        font-size: 1.2rem;
+        font-size: 1rem;
         cursor: pointer;
         margin-left: auto;
         transition: all 0.2s;

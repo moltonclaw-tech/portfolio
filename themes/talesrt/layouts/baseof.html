@@ -23,10 +23,13 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-top">
-            <img src="/talesrt_logo.svg" alt="{{ .Site.Params.author }}" class="sidebar-avatar">
+            <a href="/" class="logo-link">
+                <img src="/talesrt_logo.svg" alt="{{ .Site.Params.author }}" class="sidebar-avatar">
+            </a>
             
-            <h1 class="sidebar-name">{{ .Site.Params.author }}</h1>
-            <p class="sidebar-subtitle">{{ .Site.Params.subtitle }}</p>
+            <a href="/" class="name-link">
+                <h1 class="sidebar-name">{{ .Site.Params.author }}</h1>
+            </a>
             
             <nav class="sidebar-nav">
                 <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
