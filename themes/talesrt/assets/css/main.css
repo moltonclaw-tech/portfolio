@@ -11,6 +11,7 @@
     --accent: #de8553;
     --border: #3a4040;
     --sidebar-width: 280px;
+    --gap: 15px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,236 +71,260 @@ footer { display: none; }
 .project-title { font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.2vw, 1rem); font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
 
 /* ============================================
-   About Page - Editorial Layout
+   About Page - 12 Column Grid Layout
    ============================================ */
 
 .page-content { padding: 0; max-width: 100%; }
 
-.about-hero {
-    padding: 120px 64px 80px;
-    max-width: 900px;
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap);
+    padding: 48px 64px;
+    max-width: 1600px;
 }
 
-.about-hero h1 {
+/* Header */
+.about-header {
+    grid-column: 1 / span 12;
+    margin-bottom: 48px;
+}
+
+.about-header h1 {
     font-family: 'Cinzel', serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 400;
     line-height: 1.2;
 }
 
-.about-hero .accent { color: var(--accent); }
+.about-header .accent { color: var(--accent); }
 
-.about-section {
-    padding: 0 64px;
-    max-width: 900px;
+/* Portrait - Left 5 cols */
+.about-portrait {
+    grid-column: 1 / span 5;
 }
 
-.about-bio-section { padding-bottom: 120px; }
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 64px;
-    align-items: start;
-}
-
-.about-photo img {
+.about-portrait img {
     width: 100%;
     border-radius: 4px;
 }
 
-.about-text h2 {
+/* Bio - Right 7 cols */
+.about-bio {
+    grid-column: 7 / span 6;
+    align-self: start;
+}
+
+.about-bio h2 {
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
     font-weight: 400;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
 }
 
-.about-text p {
+.about-bio p {
     font-size: 1rem;
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 20px;
 }
 
-.about-text .lead {
+.about-bio .lead {
     font-size: 1.2rem;
     color: var(--text-primary);
     margin-bottom: 28px;
 }
 
-.about-text strong { color: var(--text-primary); }
+.about-bio strong { color: var(--text-primary); }
 
-/* Games List */
-.games-section { padding-bottom: 120px; }
-.games-section h2 {
+/* Shipped Titles - Left 6 cols */
+.about-titles {
+    grid-column: 1 / span 6;
+    margin-top: 64px;
+}
+
+.about-titles h2 {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 48px;
-    padding-bottom: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
 }
 
-.games-list { margin-left: 32px; }
+.titles-list { margin-left: 0; }
 
-.game-row {
+.title-row {
     display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 32px;
-    padding: 24px 0;
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--border);
+    align-items: baseline;
 }
 
-.game-year {
+.title-year {
     font-family: 'Cinzel', serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--accent);
+    line-height: 1;
 }
 
-.game-titles { display: flex; flex-wrap: wrap; gap: 16px 32px; }
+.title-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: baseline;
+}
 
-.game-name {
-    font-size: 1rem;
+.title-name {
+    font-size: 0.95rem;
     color: var(--text-secondary);
+    line-height: 1.5;
 }
 
-/* Timeline */
-.timeline-section { padding-bottom: 120px; }
-.timeline-section h2 {
+/* Journey - Right 6 cols */
+.about-journey {
+    grid-column: 7 / span 6;
+    margin-top: 64px;
+}
+
+.about-journey h2 {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    margin-bottom: 48px;
-    padding-bottom: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
 }
 
-.timeline { margin-left: 32px; }
+.journey-list { margin-left: 0; }
 
-.timeline-item {
+.journey-row {
     display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 32px;
-    padding: 24px 0;
-    position: relative;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
 }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -42px;
-    top: 32px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+/* 1x1 Square Bullet */
+.journey-square {
+    width: 24px;
+    height: 24px;
     background: var(--accent);
+    opacity: 0.3;
 }
 
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    left: -38px;
-    top: 40px;
-    bottom: -24px;
-    width: 1px;
-    background: var(--border);
+.journey-row:hover .journey-square {
+    opacity: 1;
 }
 
-.timeline-item:last-child::after { display: none; }
+.journey-content { align-self: center; }
 
-.timeline-year {
+.journey-year {
     font-family: 'Cinzel', serif;
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--accent);
-}
-
-.timeline-content strong {
     display: block;
-    font-size: 1.1rem;
     margin-bottom: 4px;
 }
 
-.timeline-content p {
-    font-size: 0.95rem;
+.journey-content strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.journey-content p {
+    font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
-/* Recognition */
-.recognition-section { padding-bottom: 120px; }
-
-.recognition-grid {
+/* Recognition - Full width */
+.about-recognition {
+    grid-column: 1 / span 12;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
-    margin-left: 32px;
+    gap: var(--gap);
+    margin-top: 64px;
 }
 
-.recognition-item { padding: 32px; background: var(--bg-secondary); border-radius: 4px; }
+.recognition-card {
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
 
-.recognition-item h3 {
+.recognition-card h3 {
     font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 16px;
     color: var(--text-primary);
 }
 
-.recognition-item p {
+.recognition-card p {
     font-size: 0.95rem;
     line-height: 1.7;
     color: var(--text-secondary);
 }
 
-/* CTA */
-.about-cta {
-    padding: 120px 64px;
+/* Footer - Full width */
+.about-footer {
+    grid-column: 1 / span 12;
     text-align: center;
-    background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 50%);
+    padding: 64px 0;
+    margin-top: 32px;
 }
 
-.about-cta p {
-    font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    margin-bottom: 32px;
-    color: var(--text-secondary);
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 20px 56px;
-    background: var(--accent);
-    color: var(--text-primary);
-    text-decoration: none;
-    border-radius: 4px;
+.footer-link {
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: background 0.3s;
+    transition: color 0.3s;
 }
 
-.cta-button:hover { background: #c97644; }
+.footer-link:hover { color: var(--accent); }
 
-/* Responsive */
-@media (max-width: 900px) {
+.footer-divider {
+    margin: 0 24px;
+    color: var(--border);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 1100px) {
     .sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
     .main-content { margin-left: 0; }
     .sidebar-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; margin-bottom: 0; }
     .gallery-container { max-width: 100vw; }
     
-    .about-hero, .about-section, .about-cta { padding-left: 32px; padding-right: 32px; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .about-photo { max-width: 200px; }
-    .recognition-grid { grid-template-columns: 1fr; }
-    .game-row, .timeline-item { grid-template-columns: 1fr; gap: 8px; }
-    .game-row::before, .timeline-item::before { display: none; }
-    .games-list, .timeline { margin-left: 0; }
+    .about-grid { padding: 32px 32px; }
+    
+    .about-portrait { grid-column: 1 / span 12; max-width: 300px; margin: 0 auto 32px; }
+    .about-bio { grid-column: 1 / span 12; }
+    
+    .about-titles { grid-column: 1 / span 12; margin-top: 48px; }
+    .about-journey { grid-column: 1 / span 12; margin-top: 32px; }
+    
+    .about-recognition { grid-template-columns: 1fr; }
 }
 
-
-/* Page Content */
-.page-content { padding: 0; max-width: 100%; }
+@media (max-width: 600px) {
+    .about-grid { padding: 24px 24px; }
+    
+    .title-row { grid-template-columns: 1fr; gap: 4px; }
+    .journey-row { grid-template-columns: 1fr; gap: 12px; }
+    
+    .footer-link { display: block; margin: 12px 0; }
+    .footer-divider { display: none; }
+}
