@@ -625,6 +625,7 @@ footer { display: none; }
         margin-right: 12px;
         display: flex;
         align-items: center;
+        transform: translateY(10%);
     }
     
     .sidebar-avatar {
