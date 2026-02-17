@@ -328,3 +328,33 @@ footer { display: none; }
     .footer-link { display: block; margin: 12px 0; }
     .footer-divider { display: none; }
 }
+
+
+/* Software */
+.about-software {
+    grid-column: 1 / span 12;
+    margin-top: 64px;
+}
+
+.about-software h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px 24px;
+}
+
+.software-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
