@@ -12,7 +12,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     
@@ -22,21 +22,27 @@
     
     <aside class="sidebar">
         <div class="sidebar-top">
+            <a href="/" class="logo-link">
+                
+                <img src="/images/avatar.png" alt="talesrt" class="sidebar-avatar">
+                
+            </a>
             
-            <img src="/images/avatar.png" alt="talesrt" class="sidebar-avatar">
+            <a href="/" class="name-link">
+                <h1 class="sidebar-name">talesrt</h1>
+            </a>
             
-            
-            <h1 class="sidebar-name">talesrt</h1>
-            <p class="sidebar-subtitle">Lead Character Artist
-3D | ZBrush | Blender | Unreal | Unity</p>
+            <span class="mobile-page-title">Wild Flame</span>
             
             <nav class="sidebar-nav">
                 <a href="/" class="">Work</a>
-                <a href="/about/">About</a>
-                <a href="/blog/">Blog</a>
-                <a href="/tutorials/">Tutorials</a>
                 <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
             </nav>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         
         <div class="sidebar-footer">
@@ -64,6 +70,29 @@
     </aside>
 
     
+    <div class="mobile-menu-overlay">
+        <nav class="mobile-menu">
+            <a href="/" class="">Work</a>
+            <a href="/contact/">Contact</a>
+            <a href="/about/">About</a>
+            <div class="mobile-social">
+                
+                <a href="mailto:contact@talesrt.com">Email</a>
+                
+                
+                <a href="https://artstation.com/talesrt" target="_blank" rel="noopener">ArtStation</a>
+                
+                
+                <a href="https://linkedin.com/in/talesrt" target="_blank" rel="noopener">LinkedIn</a>
+                
+                
+                <a href="https://instagram.com/talesrt" target="_blank" rel="noopener">Instagram</a>
+                
+            </div>
+        </nav>
+    </div>
+
+    
     <main class="main-content">
         
   <h1>Wild Flame</h1>
@@ -77,5 +106,28 @@
     <footer class="site-footer">
         <p>&copy; 2026 talesrt. All rights reserved.</p>
     </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var overlay = document.querySelector('.mobile-menu-overlay');
+        
+        if (toggle && overlay) {
+            toggle.addEventListener('click', function() {
+                overlay.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
