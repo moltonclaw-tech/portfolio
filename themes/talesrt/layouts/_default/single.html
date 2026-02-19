@@ -1,4 +1,5 @@
 {{ define "main" }}
+<!-- DEBUG: Using _default/single.html template -->
 {{ if eq .Section "about" }}
   {{ .Content }}
 {{ else }}
@@ -21,9 +22,17 @@
         </div>
         {{ end }}
 
+        {{/* First try page resources */}}
         {{ range .Resources.ByType "image" }}
         <figure class="project-image">
             <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+        </figure>
+        {{ end }}
+
+        {{/* If no resources, try static folder images listed in params */}}
+        {{ range .Params.images }}
+        <figure class="project-image">
+            <img src="{{ . }}" alt="{{ $.Title }}">
         </figure>
         {{ end }}
 

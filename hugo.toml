@@ -18,7 +18,7 @@ theme = 'talesrt'
     twitter = "https://twitter.com/talesrt"
     linkedin = "https://linkedin.com/in/talesrt"
     youtube = "https://youtube.com/@talesrt"
-    email = "contact@talesrt.com"
+    email = "talesdarocha@gmail.com"
 
 [markup]
   [markup.goldmark]

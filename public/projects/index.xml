@@ -2,11 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on talesrt - Character Artist</title>
-    <link>http://localhost:1313/projects/</link>
+    <link>https://talesrt.com/projects/</link>
     <description>Recent content in Projects on talesrt - Character Artist</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://talesrt.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Black Hand</title>
+      <link>https://talesrt.com/projects/black-hand/</link>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://talesrt.com/projects/black-hand/</guid>
+      <description>&lt;p&gt;Done this piece primarily based on Wei Wang&amp;rsquo;s outstanding art (&lt;a href=&#34;https://www.artstation.com/artwork/rerVO&#34;&gt;https://www.artstation.com/artwork/rerVO&lt;/a&gt;)&#xA;And then followed more references, mixing game and other areas to that character.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

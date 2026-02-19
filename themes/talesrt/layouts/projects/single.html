@@ -1,0 +1,65 @@
+{{ define "main" }}
+<article class="project-detail">
+    <header class="project-header">
+        <h1 class="project-title">{{ .Title }}</h1>
+        <div class="project-meta">
+            <div class="project-tags">
+                {{ range .Params.tags }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+
+    <div class="project-content">
+        {{ with .Description }}
+        <div class="project-description">
+            {{ . | markdownify }}
+        </div>
+        {{ end }}
+
+        {{/* First try page resources */}}
+        {{ range .Resources.ByType "image" }}
+        <figure class="project-image">
+            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
+        </figure>
+        {{ end }}
+
+        {{/* If no resources, try static folder images listed in params */}}
+        {{ range .Params.images }}
+        <figure class="project-image">
+            <img src="{{ . }}" alt="{{ $.Title }}">
+        </figure>
+        {{ end }}
+
+        {{ range .Params.videos }}
+        <div class="project-video">
+            {{ if hasPrefix . "http" }}
+                {{ if findRE "youtube\\|youtu\\.be" . }}
+                <iframe src="https://www.youtube.com/embed/{{ last 11 . }}" frameborder="0" allowfullscreen></iframe>
+                {{ else if findRE "vimeo" . }}
+                <iframe src="https://player.vimeo.com/video/{{ last 9 . }}" frameborder="0" allowfullscreen></iframe>
+                {{ else }}
+                <video controls>
+                    <source src="{{ . }}" type="video/mp4">
+                </video>
+                {{ end }}
+            {{ else }}
+            <video controls>
+                <source src="{{ . | relURL }}" type="video/mp4">
+            </video>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+
+    <nav class="project-nav">
+        {{ with .PrevInSection }}
+        <a href="{{ .Permalink }}" class="nav-prev">&larr; {{ .Title }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a href="{{ .Permalink }}" class="nav-next">{{ .Title }} &rarr;</a>
+        {{ end }}
+    </nav>
+</article>
+{{ end }}

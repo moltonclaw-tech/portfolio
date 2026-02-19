@@ -2,11 +2,15 @@
 title: "Demonho"
 date: 2026-02-13
 type: projects
-description: "Work in progress"
-tags: ["wip"]
-importance: 1
+description: "A personal demon character exploration"
+tags: ["character", "zbrush", "wip"]
+importance: 2
 thumbnail: "Demonho.png"
 draft: false
+
+# Extended Metadata
+year: 2025
+tools: ["ZBrush", "KeyShot"]
 ---
 
-Work in progress
+A personal demon character exploration focusing on organic sculpting and dramatic lighting.

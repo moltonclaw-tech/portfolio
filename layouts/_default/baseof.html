@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    
+    {{ if .Site.Params.favicon }}
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}">
+    {{ end }}
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    {{ $style := resources.Get "css/main.css" | minify }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <a href="/" class="logo-link">
+                {{ if .Site.Params.avatar }}
+                <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}" class="sidebar-avatar">
+                {{ end }}
+            </a>
+            
+            <a href="/" class="name-link">
+                <h1 class="sidebar-name">{{ .Site.Params.author }}</h1>
+            </a>
+            
+            <span class="mobile-page-title">{{ if not .IsHome }}{{ .Title | replaceRE "^talesrt - " "" }}{{ end }}</span>
+            
+            <nav class="sidebar-nav">
+                <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
+                <a href="/contact/">Contact</a>
+                <a href="/about/">About</a>
+            </nav>
+            
+            {{ if eq .Section "projects" }}
+            <div class="sidebar-project-info">
+                <h2 class="sidebar-project-title">{{ .Title }}</h2>
+                {{ with .Description }}
+                <p class="sidebar-project-description">{{ . }}</p>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="sidebar-social">
+                {{ with .Site.Params.social.instagram }}
+                <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                {{ end }}
+                {{ with .Site.Params.social.artstation }}
+                <a href="{{ . }}" target="_blank" rel="noopener" aria-label="ArtStation"><i class="fab fa-artstation"></i></a>
+                {{ end }}
+                {{ with .Site.Params.social.twitter }}
+                <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                {{ end }}
+                {{ with .Site.Params.social.linkedin }}
+                <a href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                {{ end }}
+                {{ with .Site.Params.social.youtube }}
+                <a href="{{ . }}" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                {{ end }}
+                {{ with .Site.Params.social.email }}
+                <a href="mailto:{{ . }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                {{ end }}
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <nav class="mobile-menu">
+            <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
+            <a href="/contact/">Contact</a>
+            <a href="/about/">About</a>
+            <div class="mobile-social">
+                {{ with .Site.Params.social.email }}
+                <a href="mailto:{{ . }}">Email</a>
+                {{ end }}
+                {{ with .Site.Params.social.artstation }}
+                <a href="{{ . }}" target="_blank" rel="noopener">ArtStation</a>
+                {{ end }}
+                {{ with .Site.Params.social.linkedin }}
+                <a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+                {{ end }}
+                {{ with .Site.Params.social.instagram }}
+                <a href="{{ . }}" target="_blank" rel="noopener">Instagram</a>
+                {{ end }}
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var overlay = document.querySelector('.mobile-menu-overlay');
+        
+        if (toggle && overlay) {
+            toggle.addEventListener('click', function() {
+                overlay.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            
+            // Close menu when clicking overlay
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    toggle.classList.remove('active');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

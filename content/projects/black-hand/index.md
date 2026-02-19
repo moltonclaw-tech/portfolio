@@ -6,7 +6,18 @@ description: "Done this piece primarily based on Wei Wang's outstanding art. And
 tags: ["character", "zbrush", "game-ready"]
 importance: 3
 thumbnail: "BlackHand.jpg"
+images:
+  - "/projects/black-hand/Tales da Rocha - Blackhand - 1 - OyqDNb.jpg"
+  - "/projects/black-hand/Tales da Rocha - Blackhand - 2 - OyqDNb.jpg"
+  - "/projects/black-hand/Tales da Rocha - Blackhand - 3 - OyqDNb.jpg"
+  - "/projects/black-hand/Tales da Rocha - Blackhand - OyqDNb.jpg"
+videos:
+  - "https://youtu.be/6k-TP_k6sVc"
 draft: false
+
+# Extended Metadata
+year: 2025
+tools: ["ZBrush", "Substance Painter", "Maya", "Arnold"]
 ---
 
 Done this piece primarily based on Wei Wang's outstanding art (https://www.artstation.com/artwork/rerVO)
