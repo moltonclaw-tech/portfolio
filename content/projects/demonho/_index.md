@@ -14,3 +14,4 @@ tools: ["ZBrush", "KeyShot"]
 ---
 
 A personal demon character exploration focusing on organic sculpting and dramatic lighting.
+

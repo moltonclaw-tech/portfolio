@@ -40,15 +40,6 @@
                 <a href="/about/">About</a>
             </nav>
             
-            {{ if eq .Section "projects" }}
-            <div class="sidebar-project-info">
-                <h2 class="sidebar-project-title">{{ .Title }}</h2>
-                {{ with .Description }}
-                <p class="sidebar-project-description">{{ . }}</p>
-                {{ end }}
-            </div>
-            {{ end }}
-            
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>

@@ -6,6 +6,19 @@ description: "All work and no play makes Jack a dull boy. Character inspired by 
 tags: ["character", "zbrush", "horror"]
 importance: 2
 thumbnail: "Redrum.jpg"
+
+content:
+  - type: image
+    src: "Tales da Rocha - REDRUM - 5vLgyW.jpg"
+  - type: image
+    src: "Tales da Rocha - REDRUM - 1 - 5vLgyW.jpg"
+  - type: image
+    src: "Tales da Rocha - REDRUM - 2 - 5vLgyW.jpg"
+  - type: image
+    src: "Tales da Rocha - REDRUM - 3 - 5vLgyW.jpg"
+  - type: image
+    src: "Tales da Rocha - REDRUM - 4 - 5vLgyW.jpg"
+
 draft: false
 ---
 
@@ -14,3 +27,4 @@ All work and no play makes Jack a dull boy
 All work and no play makes Jack a dull boy
 All work and no play makes Jack a dull boy
 All work and no play makes Jack a dull boy
+

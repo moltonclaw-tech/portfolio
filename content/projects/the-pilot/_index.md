@@ -6,8 +6,18 @@ description: "Sculpted this piece inspired by Betty Jiang Pilot outstanding artw
 tags: ["character", "zbrush", "concept"]
 importance: 2
 thumbnail: "Pilot.jpg"
+
+content:
+  - type: image
+    src: "Tales da Rocha - Pilot - zle3q.jpg"
+  - type: image
+    src: "Tales da Rocha - Pilot - 1 - zle3q.jpg"
+  - type: image
+    src: "Tales da Rocha - Pilot - 2 - zle3q.jpg"
+
 draft: false
 ---
 
 Sculpted this piece inspired by Betty Jiang Pilot outstanding artwork.
 Cheers!
+

@@ -1,17 +1,58 @@
 {{ define "main" }}
 <article class="project-detail">
-    <div class="project-content">
-
-        {{/* Image Gallery */}}
-        <div class="project-gallery">
-            {{ range .Params.images }}
-            <figure class="project-image">
-                <img src="{{ . }}" alt="{{ $.Title }}">
-            </figure>
+    
+    {{/* Procedural Header - First image with vignette & title */}}
+    {{ with first 1 .Params.content }}
+    {{ $first := index . 0 }}
+    <header class="project-header">
+        <div class="project-header-bg">
+            {{ if eq $first.type "image" }}
+            <img src="{{ $first.src }}" alt="{{ $.Title }}" class="project-header-image">
             {{ end }}
         </div>
+        <div class="project-header-overlay"></div>
+        <div class="project-header-fade"></div>
+        <h1 class="project-header-title">{{ $.Title }}</h1>
+    </header>
+    {{ end }}
 
-        {{/* Project Info Sidebar */}}
+    <div class="project-content">
+
+        {{/* Content - Images & Videos in specified order */}}
+        {{ range .Params.content }}
+            {{ if eq .type "image" }}
+        <figure class="project-image">
+            <img src="{{ .src }}" alt="{{ $.Title }}">
+        </figure>
+            {{ else if eq .type "video" }}
+        <div class="project-video">
+            {{ if hasPrefix .url "http" }}
+                {{ if in .url "youtube.com" }}
+                {{ $parts := split .url "/" }}
+                {{ $videoId := index $parts (sub (len $parts) 1) }}
+                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                {{ else if in .url "youtu.be" }}
+                {{ $videoId := replace .url "https://youtu.be/" "" }}
+                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                {{ else if in .url "vimeo.com" }}
+                {{ $parts := split .url "/" }}
+                {{ $videoId := index $parts (sub (len $parts) 1) }}
+                <iframe src="https://player.vimeo.com/video/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                {{ else }}
+                <video controls>
+                    <source src="{{ .url }}" type="video/mp4">
+                </video>
+                {{ end }}
+            {{ else }}
+            <video controls>
+                <source src="{{ .url | relURL }}" type="video/mp4">
+            </video>
+            {{ end }}
+        </div>
+            {{ end }}
+        {{ end }}
+
+        {{/* Project Info */}}
         <aside class="project-info">
             <h1 class="project-title">{{ .Title }}</h1>
 
@@ -39,39 +80,6 @@
             </div>
             {{ end }}
         </aside>
-
-        {{/* Project Content */}}
-        <div class="project-text">
-            {{ .Content }}
-        </div>
-
-        {{/* Videos */}}
-        {{ range .Params.videos }}
-        <div class="project-video">
-            {{ if hasPrefix . "http" }}
-                {{ if in . "youtube.com" }}
-                {{ $parts := split . "/" }}
-                {{ $videoId := index $parts (sub (len $parts) 1) }}
-                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-                {{ else if in . "youtu.be" }}
-                {{ $videoId := replace . "https://youtu.be/" "" }}
-                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-                {{ else if in . "vimeo.com" }}
-                {{ $parts := split . "/" }}
-                {{ $videoId := index $parts (sub (len $parts) 1) }}
-                <iframe src="https://player.vimeo.com/video/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
-                {{ else }}
-                <video controls>
-                    <source src="{{ . }}" type="video/mp4">
-                </video>
-                {{ end }}
-            {{ else }}
-            <video controls>
-                <source src="{{ . | relURL }}" type="video/mp4">
-            </video>
-            {{ end }}
-        </div>
-        {{ end }}
 
     </div>
 
