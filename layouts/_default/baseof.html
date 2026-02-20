@@ -59,8 +59,8 @@
             
             <nav class="sidebar-nav">
                 <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
-                <a href="/contact/">Contact</a>
-                <a href="/about/">About</a>
+                <a href="/contact/" class="{{ if in .RelPermalink "/contact" }}active{{ end }}">Contact</a>
+                <a href="/about/" class="{{ if in .RelPermalink "/about" }}active{{ end }}">About</a>
             </nav>
             
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -96,8 +96,8 @@
     <div class="mobile-menu-overlay">
         <nav class="mobile-menu">
             <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
-            <a href="/contact/">Contact</a>
-            <a href="/about/">About</a>
+            <a href="/contact/" class="{{ if in .RelPermalink "/contact" }}active{{ end }}">Contact</a>
+            <a href="/about/" class="{{ if in .RelPermalink "/about" }}active{{ end }}">About</a>
             <div class="mobile-social">
                 {{ with .Site.Params.social.email }}
                 <a href="#" data-email="dGFsZXNkYXJvY2hhQGdtYWlsLmNvbQ==">Email</a>

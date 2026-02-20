@@ -182,8 +182,8 @@ a.project-card .project-title {
 
 .lightbox-close:hover { opacity: 1; }
 
-/* Gallery Responsive - Desktop (1520px and below) */
-@media (max-width: 1520px) {
+/* Gallery Responsive - Desktop (1700px and below) */
+@media (max-width: 1700px) {
     .span-2 { grid-column: span 4 !important; grid-row: span 4 !important; }
     .span-3 { grid-column: span 6 !important; grid-row: span 6 !important; }
     .span-4 { grid-column: span 8 !important; grid-row: span 8 !important; }
@@ -675,8 +675,20 @@ a.project-card .project-title {
     fill: var(--text-secondary) !important;
 }
 
+.social-icon i,
+.social-icon [class^="fa-"] {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1;
+}
+
 .social-link:hover .social-icon svg path {
     fill: var(--accent) !important;
+}
+
+.social-link:hover .social-icon i,
+.social-link:hover .social-icon [class^="fa-"] {
+    color: var(--accent);
 }
 
 .social-name {
@@ -1205,6 +1217,76 @@ a.project-card .project-title {
     margin: 64px 0 0;
     padding: 32px 64px;
     border-top: 1px solid var(--border);
+    gap: 24px;
+}
+
+.project-nav .nav-prev,
+.project-nav .nav-next {
+    flex: 1;
+    max-width: 300px;
+}
+
+.project-nav a {
+    display: block;
+    text-decoration: none;
+}
+
+.nav-thumb {
+    position: relative;
+    aspect-ratio: 6 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--bg-secondary);
+}
+
+.nav-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    filter: brightness(0.6) blur(3px);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.nav-thumb:hover img {
+    transform: scale(1.3);
+    filter: brightness(0.7) blur(3px);
+}
+
+.nav-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.4) 85%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.nav-thumb-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+@media (max-width: 624px) {
+    .project-nav {
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+    }
+    
+    .project-nav .nav-prev,
+    .project-nav .nav-next {
+        max-width: 100%;
+    }
 }
 
 /* Project Detail Responsive */

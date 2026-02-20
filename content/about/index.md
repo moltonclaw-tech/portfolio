@@ -39,19 +39,27 @@ description: "About talesrt - Lead Character Artist"
       </div>
       <div class="title-row">
         <span class="title-year">2022</span>
-        <div class="title-names">
-          <span class="title-name">Cripta Studios</span>
-          <span class="title-name">Single City</span>
-        </div>
+        <span class="title-name">Cripta Studios</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2022</span>
+        <span class="title-name">Single City</span>
       </div>
       <div class="title-row">
         <span class="title-year">2021</span>
-        <div class="title-names">
-          <span class="title-name">Monopoly Madness</span>
-          <span class="title-name">Looney Tunes World of Mayhem</span>
-          <span class="title-name">Spell of Enigma</span>
-          <span class="title-name">Ultimate Rivals</span>
-        </div>
+        <span class="title-name">Monopoly Madness</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2021</span>
+        <span class="title-name">Looney Tunes World of Mayhem</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2021</span>
+        <span class="title-name">Spell of Enigma</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2021</span>
+        <span class="title-name">Ultimate Rivals</span>
       </div>
       <div class="title-row">
         <span class="title-year">2020</span>
@@ -59,11 +67,15 @@ description: "About talesrt - Lead Character Artist"
       </div>
       <div class="title-row">
         <span class="title-year">2019</span>
-        <div class="title-names">
-          <span class="title-name">The Isofarian Guard</span>
-          <span class="title-name">Heroforge</span>
-          <span class="title-name">PulseWorks</span>
-        </div>
+        <span class="title-name">The Isofarian Guard</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2019</span>
+        <span class="title-name">Heroforge</span>
+      </div>
+      <div class="title-row">
+        <span class="title-year">2019</span>
+        <span class="title-name">PulseWorks</span>
       </div>
     </div>
   </div>
@@ -104,6 +116,14 @@ description: "About talesrt - Lead Character Artist"
           <p>Relocated to pursue opportunities in Brazil's game industry</p>
         </div>
       </div>
+      <div class="journey-row">
+        <div class="journey-square"></div>
+        <div class="journey-content">
+          <span class="journey-year">2011</span>
+          <strong>Freelancer</strong>
+          <p>Started my professional journey with 3D Art</p>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -133,8 +153,8 @@ description: "About talesrt - Lead Character Artist"
   <!-- Recognition -->
   <div class="about-recognition">
     <div class="recognition-card">
-      <h3>Speed Learning</h3>
-      <p>Placed top 20 in Godot coding competition (10,000+ participants) despite competing against developers with 10+ years experience</p>
+      <h3>Leadership Philosophy</h3>
+      <p>Leading by example with state-of-the-art techniques, fostering collaboration between art and engineering to deliver characters that perform in-engine while pushing creative boundaries.</p>
     </div>
     <div class="recognition-card">
       <h3>Competitive Edge</h3>
@@ -148,6 +168,6 @@ description: "About talesrt - Lead Character Artist"
     <span class="footer-divider">/</span>
     <a href="https://linkedin.com/in/talesrt" class="footer-link" target="_blank">LinkedIn</a>
     <span class="footer-divider">/</span>
-    <a href="mailto:contact@talesrt.com" class="footer-link">Email</a>
+    <a href="mailto:talesdarocha@gmail.com" class="footer-link" target="_blank" rel="noopener noreferrer">Email</a>
   </div>
 </div>

@@ -1,5 +1,43 @@
 {{ define "main" }}
 <section class="page-content contact-page">
-    {{ .Content }}
+    <div class="contact-grid">
+  <!-- Header -->
+  <div class="contact-header">
+    <h1>Let's Build<br><span class="accent">Something Amazing</span></h1>
+  </div>
+  
+  <!-- CTA Card -->
+  <div class="contact-cta">
+    <div class="cta-card">
+      <h2>Start a Conversation</h2>
+      <a href="mailto:{{ .Site.Data.contact.email }}" class="cta-button" target="_blank" rel="noopener noreferrer">
+        <span class="cta-button-icon">✉</span>
+        Send Me an Email
+      </a>
+    </div>
+  </div>
+  
+  <!-- Socials -->
+  <div class="contact-socials">
+    <h2>Where to Find My Work</h2>
+    <div class="socials-grid">
+      {{ range .Site.Data.contact.socials }}
+      <a href="{{ .url }}" class="social-link" target="_blank">
+        <span class="social-icon"><i class="{{ .icon }}"></i></span>
+        <span class="social-name">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.cta-button[href^="mailto:"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(link.href, '_blank', 'noopener,noreferrer');
+  });
+});
+</script>
 </section>
 {{ end }}
