@@ -1,7 +1,11 @@
 # Contact Information - Centralized Data
 # Update here to sync across all pages
 
-email: "contact@talesrt.com"
+# Primary contact email (also used in hugo.toml)
+email: "talesdarocha@gmail.com"
+
+# Contact page specific email
+contact_page_email: "contact@talesrt.com"
 
 headline: "Character Production & Creative Leadership"
 subheadline: "High-fidelity character pipelines for AA/AAA production"
@@ -13,25 +17,28 @@ cta:
 
 strategic_partnership:
   - "High-fidelity character pipelines for Unreal Engine 5"
-  - "Scaling character teams for AA/AAA production"
+  - "Scaling character teams for AAA production"
   - "Stylized to Realistic asset translation"
 
 socials:
   - name: "ArtStation"
     url: "https://artstation.com/talesrt"
-    icon: "🎨"
+    icon: "fab fa-artstation"
     primary: true
     
   - name: "LinkedIn"
     url: "https://linkedin.com/in/talesrt"
-    icon: "💼"
+    icon: "fab fa-linkedin"
     primary: true
     
   - name: "Instagram"
     url: "https://instagram.com/talesrt"
+    icon: "fab fa-instagram"
     
   - name: "Twitter"
     url: "https://twitter.com/talesrt"
+    icon: "fab fa-twitter"
     
   - name: "YouTube"
     url: "https://youtube.com/@talesrt"
+    icon: "fab fa-youtube"

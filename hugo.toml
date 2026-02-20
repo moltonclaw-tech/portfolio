@@ -12,6 +12,7 @@ theme = 'talesrt'
   favicon = "/talesrt_logo.svg"
   heroTagline = "Crafting characters that tell stories"
   cdnUrl = ""  # Add your CDN URL here (e.g., "https://cdn.talesrt.com")
+  # Note: Email and social links are centralized in data/contact.yaml
   
   [params.social]
     artstation = "https://artstation.com/talesrt"
@@ -19,12 +20,12 @@ theme = 'talesrt'
     twitter = "https://twitter.com/talesrt"
     linkedin = "https://linkedin.com/in/talesrt"
     youtube = "https://youtube.com/@talesrt"
-    email = "talesdarocha@gmail.com"
+    # Note: Email is centralized in data/contact.yaml
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = false  # Set to true only if you need to embed custom HTML in markdown files
 
 [taxonomies]
   tag = "tags"

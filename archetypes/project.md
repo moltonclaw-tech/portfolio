@@ -5,7 +5,9 @@ type: projects
 description: ""
 tags: []
 importance: 3
-thumbnail: ""
+
+# Note: Add thumb.jpg or thumb.png to the project folder
+# Hugo will automatically detect it as the thumbnail
 
 content:
   - type: image

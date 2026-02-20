@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concept on talesrt - Character Artist</title>
-    <link>https://talesrt.com/tags/concept/</link>
+    <link>http://localhost:1313/tags/concept/</link>
     <description>Recent content in Concept on talesrt - Character Artist</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://talesrt.com/tags/concept/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/concept/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Pilot</title>
-      <link>https://talesrt.com/projects/the-pilot/</link>
+      <link>http://localhost:1313/projects/the-pilot/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/projects/the-pilot/</guid>
+      <guid>http://localhost:1313/projects/the-pilot/</guid>
       <description>&lt;p&gt;Sculpted this piece inspired by Betty Jiang Pilot outstanding artwork.&#xA;Cheers!&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,0 +1,25 @@
+{
+  "name": "talesrt-portfolio",
+  "version": "1.0.0",
+  "description": "Character artist portfolio built with Hugo",
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo --gc --minify",
+    "build-preview": "hugo server --disableFastRender --watch",
+    "clean": "rm -rf public resources/_gen",
+    "image-optimize": "npx imageoptim static/images/ static/thumbs/ assets/studies/",
+    "lint-css": "npx stylelint themes/talesrt/assets/css/*.css",
+    "check": "npm run lint-css && npm run build"
+  },
+  "keywords": [
+    "portfolio",
+    "hugo",
+    "character-artist"
+  ],
+  "author": "Tales da Rocha Trindade",
+  "license": "MIT",
+  "devDependencies": {
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}
