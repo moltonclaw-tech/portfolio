@@ -880,6 +880,10 @@ a.project-card .project-title {
         cursor: pointer;
         margin-left: auto;
         transition: all 0.2s;
+        z-index: 1001;
+        position: fixed;
+        top: 12px;
+        right: 12px;
     }
     
     .mobile-menu-toggle:hover,
@@ -1421,5 +1425,24 @@ img.lazy.fade-in {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: fixed;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle {
+        top: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        background: var(--accent);
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 1.25rem;
+    }
+    
+    .mobile-page-title {
+        top: 16px;
+        left: 16px;
     }
 }
