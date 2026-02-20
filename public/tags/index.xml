@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on talesrt - Character Artist</title>
-    <link>https://talesrt.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on talesrt - Character Artist</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://talesrt.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blender</title>
-      <link>https://talesrt.com/tags/blender/</link>
+      <link>http://localhost:1313/tags/blender/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/blender/</guid>
+      <guid>http://localhost:1313/tags/blender/</guid>
       <description></description>
     </item>
     <item>
       <title>Character</title>
-      <link>https://talesrt.com/tags/character/</link>
+      <link>http://localhost:1313/tags/character/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/character/</guid>
+      <guid>http://localhost:1313/tags/character/</guid>
       <description></description>
     </item>
     <item>
       <title>Concept</title>
-      <link>https://talesrt.com/tags/concept/</link>
+      <link>http://localhost:1313/tags/concept/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/concept/</guid>
+      <guid>http://localhost:1313/tags/concept/</guid>
       <description></description>
     </item>
     <item>
       <title>Creature</title>
-      <link>https://talesrt.com/tags/creature/</link>
+      <link>http://localhost:1313/tags/creature/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/creature/</guid>
+      <guid>http://localhost:1313/tags/creature/</guid>
       <description></description>
     </item>
     <item>
       <title>Game</title>
-      <link>https://talesrt.com/tags/game/</link>
+      <link>http://localhost:1313/tags/game/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/game/</guid>
+      <guid>http://localhost:1313/tags/game/</guid>
       <description></description>
     </item>
     <item>
       <title>Game-Ready</title>
-      <link>https://talesrt.com/tags/game-ready/</link>
+      <link>http://localhost:1313/tags/game-ready/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/game-ready/</guid>
+      <guid>http://localhost:1313/tags/game-ready/</guid>
       <description></description>
     </item>
     <item>
       <title>Horror</title>
-      <link>https://talesrt.com/tags/horror/</link>
+      <link>http://localhost:1313/tags/horror/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/horror/</guid>
+      <guid>http://localhost:1313/tags/horror/</guid>
       <description></description>
     </item>
     <item>
       <title>Magic the Gathering</title>
-      <link>https://talesrt.com/tags/magic-the-gathering/</link>
+      <link>http://localhost:1313/tags/magic-the-gathering/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/magic-the-gathering/</guid>
+      <guid>http://localhost:1313/tags/magic-the-gathering/</guid>
       <description></description>
     </item>
     <item>
       <title>Miniature</title>
-      <link>https://talesrt.com/tags/miniature/</link>
+      <link>http://localhost:1313/tags/miniature/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/miniature/</guid>
+      <guid>http://localhost:1313/tags/miniature/</guid>
       <description></description>
     </item>
     <item>
       <title>Wip</title>
-      <link>https://talesrt.com/tags/wip/</link>
+      <link>http://localhost:1313/tags/wip/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/wip/</guid>
+      <guid>http://localhost:1313/tags/wip/</guid>
       <description></description>
     </item>
     <item>
       <title>Zbrush</title>
-      <link>https://talesrt.com/tags/zbrush/</link>
+      <link>http://localhost:1313/tags/zbrush/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://talesrt.com/tags/zbrush/</guid>
+      <guid>http://localhost:1313/tags/zbrush/</guid>
       <description></description>
     </item>
   </channel>
