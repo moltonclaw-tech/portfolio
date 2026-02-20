@@ -5,6 +5,13 @@
     {{ $sorted := sort $projects "Params.importance" "desc" }}
     {{ $sorted = sort $sorted "Params.order" "asc" }}
     
+    {{ $cdnPrefix := "" }}
+    {{ if site.Params.cdnUrl }}
+      {{ $cdnPrefix = site.Params.cdnUrl }}
+    {{ end }}
+    
+    {{ $preloadCount := 0 }}
+    
     {{ range $sorted }}
     {{ $spanClass := "span-1" }}
     {{ if eq .Params.importance 2 }}{{ $spanClass = "span-2" }}{{ end }}
@@ -13,19 +20,42 @@
     {{ if eq .Params.importance 6 }}{{ $spanClass = "span-6" }}{{ end }}
     
     {{ $thumb := false }}
+    {{ $thumbExt := "jpg" }}
     {{ range .Resources }}
       {{ if or (eq .Name "thumb.jpg") (eq .Name "thumb.png") }}
         {{ $thumb = . }}
+        {{ if eq .Name "thumb.png" }}{{ $thumbExt = "png" }}{{ end }}
       {{ end }}
     {{ end }}
     
     {{ if eq .Params.importance 1 }}
-    <div class="project-card {{ $spanClass }} importance-1" data-image="{{ .RelPermalink }}thumb.jpg">
+    <div class="project-card {{ $spanClass }} importance-1" data-image="{{ .RelPermalink }}thumb.{{ $thumbExt }}">
         <div class="project-thumb">
             {{ if $thumb }}
-            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}">
+              {{ $small := $thumb.Resize "300x webp" }}
+              {{ $medium := $thumb.Resize "600x webp" }}
+              {{ $large := $thumb.Resize "1200x webp" }}
+              {{ $lqip := $thumb.Resize "20x webp" | images.Filter (images.GaussianBlur 2) }}
+              
+              {{ $preloadCount = add $preloadCount 1 }}
+              {{ if le $preloadCount 4 }}
+              <link rel="preload" as="image" href="{{ $small.RelPermalink }}">
+              {{ end }}
+              
+              <img 
+                src="{{ $small.RelPermalink }}"
+                srcset="{{ $small.RelPermalink }} 300w, {{ $medium.RelPermalink }} 600w, {{ $large.RelPermalink }} 1200w"
+                sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
+                data-src="{{ $large.RelPermalink }}"
+                data-lqip="{{ $lqip.RelPermalink }}"
+                alt="{{ .Title }}"
+                class="lazy"
+                width="{{ $small.Width }}"
+                height="{{ $small.Height }}"
+                loading="lazy"
+              >
             {{ else }}
-            <img src="{{ .RelPermalink }}thumb.jpg" alt="{{ .Title }}">
+              <img src="{{ .RelPermalink }}thumb.{{ $thumbExt }}" alt="{{ .Title }}" loading="lazy">
             {{ end }}
             <div class="project-overlay">
                 <h3 class="project-title">{{ .Title }}</h3>
@@ -36,9 +66,30 @@
     <a href="{{ .RelPermalink }}" class="project-card {{ $spanClass }}" data-importance="{{ .Params.importance }}">
         <div class="project-thumb">
             {{ if $thumb }}
-            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}">
+              {{ $small := $thumb.Resize "300x webp" }}
+              {{ $medium := $thumb.Resize "600x webp" }}
+              {{ $large := $thumb.Resize "1200x webp" }}
+              {{ $lqip := $thumb.Resize "20x webp" | images.Filter (images.GaussianBlur 2) }}
+              
+              {{ $preloadCount = add $preloadCount 1 }}
+              {{ if le $preloadCount 4 }}
+              <link rel="preload" as="image" href="{{ $small.RelPermalink }}">
+              {{ end }}
+              
+              <img 
+                src="{{ $small.RelPermalink }}"
+                srcset="{{ $small.RelPermalink }} 300w, {{ $medium.RelPermalink }} 600w, {{ $large.RelPermalink }} 1200w"
+                sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 1200px"
+                data-src="{{ $large.RelPermalink }}"
+                data-lqip="{{ $lqip.RelPermalink }}"
+                alt="{{ .Title }}"
+                class="lazy"
+                width="{{ $small.Width }}"
+                height="{{ $small.Height }}"
+                loading="lazy"
+              >
             {{ else }}
-            <img src="{{ .RelPermalink }}thumb.jpg" alt="{{ .Title }}">
+              <img src="{{ .RelPermalink }}thumb.{{ $thumbExt }}" alt="{{ .Title }}" loading="lazy">
             {{ end }}
             <div class="project-overlay">
                 <h3 class="project-title">{{ .Title }}</h3>
@@ -53,9 +104,26 @@
     {{ range $studies }}
     {{ $name := path.Base .Name }}
     {{ $name = replaceRE "\\..*" "" $name }}
+    
+    {{ $small := .Resize "300x webp" }}
+    {{ $medium := .Resize "600x webp" }}
+    {{ $large := .Resize "1200x webp" }}
+    {{ $lqip := .Resize "20x webp" | images.Filter (images.GaussianBlur 2) }}
+    
     <div class="project-card span-1 importance-1" data-image="{{ .RelPermalink }}">
         <div class="project-thumb">
-            <img src="{{ .RelPermalink }}" alt="{{ $name }}">
+            <img 
+              src="{{ $small.RelPermalink }}"
+              srcset="{{ $small.RelPermalink }} 300w, {{ $medium.RelPermalink }} 600w, {{ $large.RelPermalink }} 1200w"
+              sizes="300px"
+              data-src="{{ $large.RelPermalink }}"
+              data-lqip="{{ $lqip.RelPermalink }}"
+              alt="{{ $name }}"
+              class="lazy"
+              width="{{ $small.Width }}"
+              height="{{ $small.Height }}"
+              loading="lazy"
+            >
             <div class="project-overlay">
                 <h3 class="project-title">{{ $name }}</h3>
             </div>
@@ -69,4 +137,38 @@
     <button class="lightbox-close">&times;</button>
     <img id="lightbox-image" src="" alt="">
 </div>
+
+<script>
+// Blur-up lazy loading
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                const lqip = img.dataset.lqip;
+                
+                if (lqip && !img.src.includes(lqip)) {
+                    img.style.transition = 'opacity 0.3s ease-in-out';
+                    img.style.opacity = '0.3';
+                }
+                
+                img.src = src;
+                img.onload = function() {
+                    if (lqip) {
+                        img.style.opacity = '1';
+                    }
+                    img.classList.remove('lazy');
+                };
+                
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+</script>
 {{ end }}

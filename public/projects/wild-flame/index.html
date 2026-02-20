@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wild Flame | talesrt - Character Artist</title>
@@ -98,12 +98,13 @@
 <article class="project-detail">
     
     
-    
-    
     <header class="project-header">
         <div class="project-header-bg">
             
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%20aR13A8.jpg" alt="Wild Flame" class="project-header-image">
+            
+            
+              <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%20aR13A8.jpg" alt="Wild Flame" class="project-header-image" loading="lazy">
+            
             
         </div>
         <div class="project-header-overlay"></div>
@@ -117,57 +118,84 @@
         
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%201%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%201%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%202%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%202%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%203%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%203%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%204%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%204%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%207%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%207%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%208%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%208%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%209%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%209%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%2010%20-%20aR13A8.jpg" alt="Wild Flame">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Wild%20Flame%20-%20%20Real%20Time%20-%2010%20-%20aR13A8.jpg" alt="Wild Flame" loading="lazy">
+          </figure>
+        
             
         
 
@@ -191,10 +219,44 @@
     <nav class="project-nav">
         
         
-        <a href="http://localhost:1313/projects/the-pilot/" class="nav-next">The Pilot &rarr;</a>
+        <a href="https://talesrt.com/projects/the-pilot/" class="nav-next">The Pilot &rarr;</a>
         
     </nav>
 </article>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                const lqip = img.dataset.lqip;
+                
+                if (lqip && !img.src.includes(lqip)) {
+                    img.style.transition = 'opacity 0.5s ease-in-out';
+                    img.style.opacity = '0.4';
+                }
+                
+                img.src = src;
+                img.onload = function() {
+                    if (lqip) {
+                        img.style.opacity = '1';
+                    }
+                    img.classList.remove('lazy');
+                };
+                
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+</script>
 
     </main>
 

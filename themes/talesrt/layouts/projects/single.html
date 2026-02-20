@@ -20,32 +20,71 @@
 
         {{/* First try page resources */}}
         {{ range .Resources.ByType "image" }}
-        <figure class="project-image">
-            <img src="{{ .RelPermalink }}" alt="{{ $.Title }}">
-        </figure>
+          {{ $small := .Resize "800x webp" }}
+          {{ $medium := .Resize "1200x webp" }}
+          {{ $large := .Resize "2000x webp" }}
+          {{ $lqip := .Resize "30x webp" | images.Filter (images.GaussianBlur 3) }}
+          
+          <figure class="project-image">
+            <img 
+              src="{{ $small.RelPermalink }}"
+              srcset="{{ $small.RelPermalink }} 800w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
+              sizes="(max-width: 800px) 100vw, 1200px"
+              data-src="{{ $large.RelPermalink }}"
+              data-lqip="{{ $lqip.RelPermalink }}"
+              alt="{{ $.Title }}"
+              class="lazy"
+              width="{{ $small.Width }}"
+              height="{{ $small.Height }}"
+              loading="lazy"
+            >
+          </figure>
         {{ end }}
 
         {{/* If no resources, try static folder images listed in params */}}
         {{ range .Params.images }}
-        <figure class="project-image">
-            <img src="{{ . }}" alt="{{ $.Title }}">
-        </figure>
+        {{ $img := resources.Get . }}
+        {{ if $img }}
+          {{ $small := $img.Resize "800x webp" }}
+          {{ $medium := $img.Resize "1200x webp" }}
+          {{ $large := $img.Resize "2000x webp" }}
+          {{ $lqip := $img.Resize "30x webp" | images.Filter (images.GaussianBlur 3) }}
+          
+          <figure class="project-image">
+            <img 
+              src="{{ $small.RelPermalink }}"
+              srcset="{{ $small.RelPermalink }} 800w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
+              sizes="(max-width: 800px) 100vw, 1200px"
+              data-src="{{ $large.RelPermalink }}"
+              data-lqip="{{ $lqip.RelPermalink }}"
+              alt="{{ $.Title }}"
+              class="lazy"
+              width="{{ $small.Width }}"
+              height="{{ $small.Height }}"
+              loading="lazy"
+            >
+          </figure>
+        {{ else }}
+          <figure class="project-image">
+            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          </figure>
+        {{ end }}
         {{ end }}
 
         {{ range .Params.videos }}
         <div class="project-video">
             {{ if hasPrefix . "http" }}
                 {{ if findRE "youtube\\|youtu\\.be" . }}
-                <iframe src="https://www.youtube.com/embed/{{ last 11 . }}" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{ last 11 . }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 {{ else if findRE "vimeo" . }}
-                <iframe src="https://player.vimeo.com/video/{{ last 9 . }}" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/{{ last 9 . }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 {{ else }}
-                <video controls>
+                <video controls loading="lazy">
                     <source src="{{ . }}" type="video/mp4">
                 </video>
                 {{ end }}
             {{ else }}
-            <video controls>
+            <video controls loading="lazy">
                 <source src="{{ . | relURL }}" type="video/mp4">
             </video>
             {{ end }}
@@ -55,11 +94,45 @@
 
     <nav class="project-nav">
         {{ with .PrevInSection }}
-        <a href="{{ .Permalink }}" class="nav-prev">&larr; {{ .Title }}</a>
+        <a href="{{ .RelPermalink }}" class="nav-prev">&larr; {{ .Title }}</a>
         {{ end }}
         {{ with .NextInSection }}
-        <a href="{{ .Permalink }}" class="nav-next">{{ .Title }} &rarr;</a>
+        <a href="{{ .RelPermalink }}" class="nav-next">{{ .Title }} &rarr;</a>
         {{ end }}
     </nav>
 </article>
+
+<script>
+// Blur-up lazy loading for project images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                const lqip = img.dataset.lqip;
+                
+                if (lqip && !img.src.includes(lqip)) {
+                    img.style.transition = 'opacity 0.5s ease-in-out';
+                    img.style.opacity = '0.4';
+                }
+                
+                img.src = src;
+                img.onload = function() {
+                    if (lqip) {
+                        img.style.opacity = '1';
+                    }
+                    img.classList.remove('lazy');
+                };
+                
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+</script>
 {{ end }}

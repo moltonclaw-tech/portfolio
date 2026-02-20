@@ -11,6 +11,7 @@ theme = 'talesrt'
   avatar = "/images/avatar.png"
   favicon = "/talesrt_logo.svg"
   heroTagline = "Crafting characters that tell stories"
+  cdnUrl = ""  # Add your CDN URL here (e.g., "https://cdn.talesrt.com")
   
   [params.social]
     artstation = "https://artstation.com/talesrt"

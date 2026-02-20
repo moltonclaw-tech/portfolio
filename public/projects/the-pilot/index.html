@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pilot | talesrt - Character Artist</title>
@@ -98,12 +98,13 @@
 <article class="project-detail">
     
     
-    
-    
     <header class="project-header">
         <div class="project-header-bg">
             
-            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%20zle3q.jpg" alt="The Pilot" class="project-header-image">
+            
+            
+              <img src="Tales%20da%20Rocha%20-%20Pilot%20-%20zle3q.jpg" alt="The Pilot" class="project-header-image" loading="lazy">
+            
             
         </div>
         <div class="project-header-overlay"></div>
@@ -117,21 +118,30 @@
         
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%20zle3q.jpg" alt="The Pilot">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%20zle3q.jpg" alt="The Pilot" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%201%20-%20zle3q.jpg" alt="The Pilot">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%201%20-%20zle3q.jpg" alt="The Pilot" loading="lazy">
+          </figure>
+        
             
         
             
-        <figure class="project-image">
-            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%202%20-%20zle3q.jpg" alt="The Pilot">
-        </figure>
+        
+        
+          <figure class="project-image">
+            <img src="Tales%20da%20Rocha%20-%20Pilot%20-%202%20-%20zle3q.jpg" alt="The Pilot" loading="lazy">
+          </figure>
+        
             
         
 
@@ -154,13 +164,47 @@
 
     <nav class="project-nav">
         
-        <a href="http://localhost:1313/projects/wild-flame/" class="nav-prev">&larr; Wild Flame</a>
+        <a href="https://talesrt.com/projects/wild-flame/" class="nav-prev">&larr; Wild Flame</a>
         
         
-        <a href="http://localhost:1313/projects/the-isofarian-guard/" class="nav-next">The Isofarian Guard &rarr;</a>
+        <a href="https://talesrt.com/projects/the-isofarian-guard/" class="nav-next">The Isofarian Guard &rarr;</a>
         
     </nav>
 </article>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                const lqip = img.dataset.lqip;
+                
+                if (lqip && !img.src.includes(lqip)) {
+                    img.style.transition = 'opacity 0.5s ease-in-out';
+                    img.style.opacity = '0.4';
+                }
+                
+                img.src = src;
+                img.onload = function() {
+                    if (lqip) {
+                        img.style.opacity = '1';
+                    }
+                    img.classList.remove('lazy');
+                };
+                
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+</script>
 
     </main>
 

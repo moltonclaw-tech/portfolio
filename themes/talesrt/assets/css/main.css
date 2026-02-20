@@ -1264,3 +1264,45 @@ a.project-card .project-title {
 .site-footer {
     display: none;
 }
+
+/* ============================================
+   Lazy Loading & Blur-Up (LQIP)
+   ============================================ */
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy.loaded,
+img.lazy:not(.lazy) {
+    opacity: 1;
+}
+
+/* Blur effect during load */
+.project-thumb img.lazy {
+    filter: blur(10px);
+}
+
+.project-thumb img.lazy.loaded,
+.project-thumb img.lazy:not(.lazy) {
+    filter: blur(0);
+}
+
+.project-image img.lazy {
+    filter: blur(15px);
+}
+
+.project-image img.lazy.loaded,
+.project-image img.lazy:not(.lazy) {
+    filter: blur(0);
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+img.lazy.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}

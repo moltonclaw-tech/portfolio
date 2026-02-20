@@ -1,13 +1,17 @@
 {{ define "main" }}
 <article class="project-detail">
-    
-    {{/* Procedural Header - First image with vignette & title */}}
     {{ if and .Params.content (gt (len .Params.content) 0) }}
     {{ $first := index .Params.content 0 }}
     <header class="project-header">
         <div class="project-header-bg">
             {{ if eq $first.type "image" }}
-            <img src="{{ $first.src }}" alt="{{ $.Title }}" class="project-header-image">
+            {{ $img := resources.Get $first.src }}
+            {{ if $img }}
+              {{ $large := $img.Resize "2000x webp" }}
+              <img src="{{ $large.RelPermalink }}" alt="{{ $.Title }}" class="project-header-image" loading="lazy">
+            {{ else }}
+              <img src="{{ $first.src }}" alt="{{ $.Title }}" class="project-header-image" loading="lazy">
+            {{ end }}
             {{ end }}
         </div>
         <div class="project-header-overlay"></div>
@@ -19,32 +23,55 @@
     <div class="project-content">
 
         {{/* Content - Images & Videos in specified order */}}
-        {{ range .Params.content }}
+        {{ range $index, $item := .Params.content }}
             {{ if eq .type "image" }}
-        <figure class="project-image">
-            <img src="{{ .src }}" alt="{{ $.Title }}">
-        </figure>
+        {{ $img := resources.Get .src }}
+        {{ if $img }}
+          {{ $small := $img.Resize "800x webp" }}
+          {{ $medium := $img.Resize "1200x webp" }}
+          {{ $large := $img.Resize "2000x webp" }}
+          {{ $lqip := $img.Resize "30x webp" | images.Filter (images.GaussianBlur 3) }}
+          
+          <figure class="project-image">
+            <img 
+              src="{{ $small.RelPermalink }}"
+              srcset="{{ $small.RelPermalink }} 800w, {{ $medium.RelPermalink }} 1200w, {{ $large.RelPermalink }} 2000w"
+              sizes="(max-width: 800px) 100vw, 1200px"
+              data-src="{{ $large.RelPermalink }}"
+              data-lqip="{{ $lqip.RelPermalink }}"
+              alt="{{ $.Title }}"
+              class="lazy"
+              width="{{ $small.Width }}"
+              height="{{ $small.Height }}"
+              loading="lazy"
+            >
+          </figure>
+        {{ else }}
+          <figure class="project-image">
+            <img src="{{ .src }}" alt="{{ $.Title }}" loading="lazy">
+          </figure>
+        {{ end }}
             {{ else if eq .type "video" }}
         <div class="project-video">
             {{ if hasPrefix .url "http" }}
                 {{ if in .url "youtube.com" }}
                 {{ $parts := split .url "/" }}
                 {{ $videoId := index $parts (sub (len $parts) 1) }}
-                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 {{ else if in .url "youtu.be" }}
                 {{ $videoId := replace .url "https://youtu.be/" "" }}
-                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 {{ else if in .url "vimeo.com" }}
                 {{ $parts := split .url "/" }}
                 {{ $videoId := index $parts (sub (len $parts) 1) }}
-                <iframe src="https://player.vimeo.com/video/{{ $videoId }}" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/{{ $videoId }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 {{ else }}
-                <video controls>
+                <video controls loading="lazy">
                     <source src="{{ .url }}" type="video/mp4">
                 </video>
                 {{ end }}
             {{ else }}
-            <video controls>
+            <video controls loading="lazy">
                 <source src="{{ .url | relURL }}" type="video/mp4">
             </video>
             {{ end }}
@@ -92,4 +119,38 @@
         {{ end }}
     </nav>
 </article>
+
+<script>
+// Blur-up lazy loading for project images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                const lqip = img.dataset.lqip;
+                
+                if (lqip && !img.src.includes(lqip)) {
+                    img.style.transition = 'opacity 0.5s ease-in-out';
+                    img.style.opacity = '0.4';
+                }
+                
+                img.src = src;
+                img.onload = function() {
+                    if (lqip) {
+                        img.style.opacity = '1';
+                    }
+                    img.classList.remove('lazy');
+                };
+                
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
+</script>
 {{ end }}
