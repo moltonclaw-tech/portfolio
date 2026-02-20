@@ -127,6 +127,41 @@ Cheers!</p>
                 }
             });
         }
+        
+        
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImage = document.getElementById('lightbox-image');
+        var closeBtn = document.querySelector('.lightbox-close');
+        var importance1Cards = document.querySelectorAll('.importance-1');
+        
+        if (lightbox && importance1Cards.length > 0) {
+            importance1Cards.forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var imageUrl = this.getAttribute('data-image');
+                    lightboxImage.src = imageUrl;
+                    lightbox.classList.add('active');
+                });
+            });
+            
+            
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+            });
+            
+            
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+            
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
     });
     </script>
 </body>
