@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | talesrt - Character Artist</title>
-    <meta name="description" content="Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil">
+    <meta name="description" content="Get in touch with talesrt">
+    
+    
+    <meta property="og:title" content="Contact">
+    <meta property="og:description" content="Get in touch with talesrt">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://talesrt.com/contact/">
+    <meta property="og:image" content="https://talesrt.com/images/avatar.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "talesrt",
+        "url": "https:\/\/talesrt.com\/",
+        "sameAs": [
+            "https:\/\/artstation.com\/talesrt",
+            "https:\/\/linkedin.com\/in\/talesrt",
+            "https:\/\/instagram.com\/talesrt"
+        ]
+    }
+    </script>
     
     
     <link rel="icon" type="image/png" href="/talesrt_logo.svg">
@@ -13,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     
     <link rel="stylesheet" href="/css/main.min.css">
@@ -184,6 +207,8 @@ document.querySelectorAll('.cta-button[href^="mailto:"]').forEach(link => {
                     var imageUrl = this.getAttribute('data-image');
                     lightboxImage.src = imageUrl;
                     lightbox.classList.add('active');
+                    
+                    setTimeout(function() { closeBtn.focus(); }, 100);
                 });
             });
             
@@ -204,6 +229,22 @@ document.querySelectorAll('.cta-button[href^="mailto:"]').forEach(link => {
                 if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                     lightbox.classList.remove('active');
                 }
+            });
+            
+            
+            lightbox.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab' && lightbox.classList.contains('active')) {
+                    e.preventDefault();
+                    closeBtn.focus();
+                }
+            });
+            
+            
+            var emailLinks = document.querySelectorAll('[data-email]');
+            emailLinks.forEach(function(link) {
+                var encoded = link.getAttribute('data-email');
+                var decoded = atob(encoded);
+                link.href = 'mailto:' + decoded;
             });
         }
     });
