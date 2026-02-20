@@ -58,7 +58,19 @@ footer { display: none; }
     padding: 0;
 }
 
-.project-card { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 2px; }
+/* Project card - works for both div and a tags */
+.project-card,
+a.project-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 2px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
 .project-thumb { width: 100%; height: 100%; }
 .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -70,14 +82,65 @@ footer { display: none; }
 
 .project-card[data-importance="6"] { grid-column: 4 / span 6 !important; grid-row: 1 / span 6 !important; z-index: 10; }
 
-.span-1:hover { opacity: 0.7; filter: none; }
-.span-2:hover { opacity: 1; filter: none; }
+.span-1:hover,
+a.span-1:hover { opacity: 0.7; filter: none; }
+.span-2:hover,
+a.span-2:hover { opacity: 1; filter: none; }
 
 .project-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
-.project-card:hover .project-overlay { opacity: 1; }
-.project-card:hover .project-thumb img { transform: scale(1.03); }
+.project-card:hover .project-overlay,
+a.project-card:hover .project-overlay { opacity: 1; }
+.project-card:hover .project-thumb img,
+a.project-card:hover .project-thumb img { transform: scale(1.03); }
 
-.project-title { font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.2vw, 1rem); font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+/* Link cards - remove default link styling */
+.project-card > a,
+a.project-card {
+    display: block;
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+}
+
+.project-card > a:hover,
+a.project-card:hover {
+    color: var(--text-primary) !important;
+}
+
+/* ALL card titles - base styles */
+.project-card .project-title,
+a.project-card .project-title {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 600 !important;
+    color: #bbbaba !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    line-height: 1.1 !important;
+}
+
+/* Make overlay expand to fit content */
+.project-overlay {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8% !important;
+}
+
+/* Importance 1: small titles */
+.project-card.importance-1 .project-title {
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem) !important;
+}
+
+/* Importance 2-6: HUGE titles that fill the card */
+.span-2 .project-overlay .project-title { font-size: clamp(1.5rem, 4vw, 2.5rem) !important; }
+.span-3 .project-overlay .project-title { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
+.span-4 .project-overlay .project-title { font-size: clamp(2.5rem, 6vw, 4.5rem) !important; }
+.span-6 .project-overlay .project-title { font-size: clamp(3rem, 7vw, 5.5rem) !important; }
 
 /* Importance 1: clickable lightbox, not a link */
 .project-card.importance-1 { cursor: pointer; }
@@ -145,8 +208,6 @@ footer { display: none; }
     .span-6 { grid-column: span 12 !important; grid-row: span 12 !important; }
     
     .project-card[data-importance="6"] { grid-column: 1 / span 12 !important; grid-row: auto !important; }
-    
-    .project-title { font-size: clamp(0.6rem, 1.5vw, 1rem); }
 }
 
 /* Gallery Responsive - Mobile */
@@ -182,8 +243,6 @@ footer { display: none; }
         opacity: 0.7;
         filter: none;
     }
-    
-    .project-title { font-size: 0.8rem; }
 }
 
 /* Gallery Responsive - Small Mobile */
