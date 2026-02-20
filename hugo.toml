@@ -25,7 +25,7 @@ theme = 'talesrt'
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = false  # Set to true only if you need to embed custom HTML in markdown files
+      unsafe = true  # Safe for static pages you control (not user-generated content)
   [markup.goldmark.parser]
     [markup.goldmark.parser.attribute]
       block = true
