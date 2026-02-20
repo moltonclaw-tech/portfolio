@@ -30,10 +30,6 @@ theme = 'talesrt'
     [markup.goldmark.parser.attribute]
       block = true
 
-[ignoreLogs]
-  error = []
-  warning = ["warning-goldmark-raw-html"]
-
 [taxonomies]
   tag = "tags"
   category = "categories"
