@@ -4,8 +4,7 @@ date: 2026-02-13
 type: projects
 description: "Done this piece primarily based on Wei Wang's outstanding art. And then followed more references, mixing game and other areas to that character."
 tags: ["character", "zbrush", "game-ready"]
-importance: 3
-thumbnail: "BlackHand.jpg"
+importance: 3
 
 content:
   - type: image
@@ -28,5 +27,10 @@ tools: ["ZBrush", "Substance Painter", "Maya", "Arnold"]
 
 Done this piece primarily based on Wei Wang's outstanding art (https://www.artstation.com/artwork/rerVO)
 And then followed more references, mixing game and other areas to that character.
+
+
+
+
+
 
 

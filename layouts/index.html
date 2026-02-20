@@ -12,10 +12,21 @@
     {{ if eq .Params.importance 4 }}{{ $spanClass = "span-4" }}{{ end }}
     {{ if eq .Params.importance 6 }}{{ $spanClass = "span-6" }}{{ end }}
     
+    {{ $thumb := false }}
+    {{ range .Resources }}
+      {{ if or (eq .Name "thumb.jpg") (eq .Name "thumb.png") }}
+        {{ $thumb = . }}
+      {{ end }}
+    {{ end }}
+    
     {{ if eq .Params.importance 1 }}
-    <div class="project-card {{ $spanClass }} importance-1" data-image="/thumbs/{{ .Params.thumbnail }}">
+    <div class="project-card {{ $spanClass }} importance-1" data-image="{{ .RelPermalink }}thumb.jpg">
         <div class="project-thumb">
-            <img src="/thumbs/{{ .Params.thumbnail }}" alt="{{ .Title }}">
+            {{ if $thumb }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}">
+            {{ else }}
+            <img src="{{ .RelPermalink }}thumb.jpg" alt="{{ .Title }}">
+            {{ end }}
             <div class="project-overlay">
                 <h3 class="project-title">{{ .Title }}</h3>
             </div>
@@ -24,7 +35,11 @@
     {{ else }}
     <a href="{{ .RelPermalink }}" class="project-card {{ $spanClass }}" data-importance="{{ .Params.importance }}">
         <div class="project-thumb">
-            <img src="/thumbs/{{ .Params.thumbnail }}" alt="{{ .Title }}">
+            {{ if $thumb }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}">
+            {{ else }}
+            <img src="{{ .RelPermalink }}thumb.jpg" alt="{{ .Title }}">
+            {{ end }}
             <div class="project-overlay">
                 <h3 class="project-title">{{ .Title }}</h3>
             </div>

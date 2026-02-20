@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Miniature on talesrt - Character Artist</title>
-    <link>http://localhost:1313/tags/miniature/</link>
+    <link>https://talesrt.com/tags/miniature/</link>
     <description>Recent content in Miniature on talesrt - Character Artist</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/miniature/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talesrt.com/tags/miniature/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Isofarian Guard</title>
-      <link>http://localhost:1313/projects/the-isofarian-guard/</link>
+      <link>https://talesrt.com/projects/the-isofarian-guard/</link>
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/the-isofarian-guard/</guid>
+      <guid>https://talesrt.com/projects/the-isofarian-guard/</guid>
       <description>&lt;p&gt;Set of 50mm miniatures developed for The Isofarian Guard, the new game from Skykingdom Games!&#xA;Worked shoulder to shoulder by side with my bro Saulo Bonatto in the double character miniatures.&lt;/p&gt;</description>
     </item>
   </channel>

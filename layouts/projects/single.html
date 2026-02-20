@@ -2,8 +2,8 @@
 <article class="project-detail">
     
     {{/* Procedural Header - First image with vignette & title */}}
-    {{ with first 1 .Params.content }}
-    {{ $first := index . 0 }}
+    {{ if and .Params.content (gt (len .Params.content) 0) }}
+    {{ $first := index .Params.content 0 }}
     <header class="project-header">
         <div class="project-header-bg">
             {{ if eq $first.type "image" }}
