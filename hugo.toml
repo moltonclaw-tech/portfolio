@@ -26,6 +26,13 @@ theme = 'talesrt'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = false  # Set to true only if you need to embed custom HTML in markdown files
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+
+[ignoreLogs]
+  error = []
+  warning = ["warning-goldmark-raw-html"]
 
 [taxonomies]
   tag = "tags"
