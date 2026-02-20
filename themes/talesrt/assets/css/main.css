@@ -38,7 +38,7 @@ body { font-family: sans-serif; background: var(--bg-primary); color: var(--text
 .mobile-page-title, .mobile-menu-toggle, .mobile-menu-overlay { display: none !important; }
 
 /* Main Content */
-.main-content { flex: 1; margin-left: var(--sidebar-width); padding: 0; min-height: 100vh; overflow-x: hidden; background: #1f1c1a; }
+.main-content { flex: 1; margin-left: var(--sidebar-width); padding: 0; min-height: 100vh; overflow-x: hidden; overflow-y: auto; background: #1f1c1a; }
 footer { display: none; }
 
 /* Hide page title on contact page */
@@ -556,7 +556,7 @@ a.project-card .project-title {
 .contact-grid {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 100dvh;
+    min-height: 100dvh;
     box-sizing: border-box;
     padding: 48px 64px;
     max-width: 1600px;
