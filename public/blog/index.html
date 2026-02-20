@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | talesrt - Character Artist</title>
     <meta name="description" content="Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil">
+    <link rel="icon" type="image/svg+xml" href="/talesrt_logo.svg">
     
     
     <link rel="icon" type="image/png" href="/talesrt_logo.svg">
@@ -23,9 +24,7 @@
     <aside class="sidebar">
         <div class="sidebar-top">
             <a href="/" class="logo-link">
-                
-                <img src="/images/avatar.png" alt="talesrt" class="sidebar-avatar">
-                
+                <img src="/talesrt_logo.svg" alt="talesrt" class="sidebar-avatar">
             </a>
             
             <a href="/" class="name-link">
@@ -77,16 +76,22 @@
             <a href="/about/">About</a>
             <div class="mobile-social">
                 
-                <a href="mailto:talesdarocha@gmail.com">Email</a>
+                <a href="https://instagram.com/talesrt" target="_blank" rel="noopener">Instagram</a>
                 
                 
                 <a href="https://artstation.com/talesrt" target="_blank" rel="noopener">ArtStation</a>
                 
                 
+                <a href="https://twitter.com/talesrt" target="_blank" rel="noopener">Twitter</a>
+                
+                
                 <a href="https://linkedin.com/in/talesrt" target="_blank" rel="noopener">LinkedIn</a>
                 
                 
-                <a href="https://instagram.com/talesrt" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://youtube.com/@talesrt" target="_blank" rel="noopener">YouTube</a>
+                
+                
+                <a href="mailto:talesdarocha@gmail.com">Email</a>
                 
             </div>
         </nav>
@@ -108,30 +113,19 @@
   
 
     </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2026 talesrt. All rights reserved.</p>
-    </footer>
     
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        var toggle = document.querySelector('.mobile-menu-toggle');
-        var overlay = document.querySelector('.mobile-menu-overlay');
-        
-        if (toggle && overlay) {
-            toggle.addEventListener('click', function() {
-                overlay.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            
-            overlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                    toggle.classList.remove('active');
-                }
-            });
+    
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+        this.classList.toggle('active');
+    });
+    
+    
+    document.querySelector('.mobile-menu-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.querySelector('.mobile-menu-toggle').classList.remove('active');
         }
     });
     </script>

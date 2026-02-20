@@ -121,6 +121,41 @@
                 }
             });
         }
+        
+        // Lightbox for importance 1 projects
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImage = document.getElementById('lightbox-image');
+        var closeBtn = document.querySelector('.lightbox-close');
+        var importance1Cards = document.querySelectorAll('.importance-1');
+        
+        if (lightbox && importance1Cards.length > 0) {
+            importance1Cards.forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var imageUrl = this.getAttribute('data-image');
+                    lightboxImage.src = imageUrl;
+                    lightbox.classList.add('active');
+                });
+            });
+            
+            // Close lightbox
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+            });
+            
+            // Close on background click
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
     });
     </script>
 </body>

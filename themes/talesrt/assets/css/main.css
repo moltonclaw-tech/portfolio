@@ -79,6 +79,44 @@ footer { display: none; }
 
 .project-title { font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.2vw, 1rem); font-weight: 600; text-align: center; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
 
+/* Importance 1: clickable lightbox, not a link */
+.project-card.importance-1 { cursor: pointer; }
+
+/* Lightbox for importance 1 projects */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.lightbox-close:hover { opacity: 1; }
+
 /* Gallery Responsive - Desktop (1520px and below) */
 @media (max-width: 1520px) {
     .span-2 { grid-column: span 4 !important; grid-row: span 4 !important; }
@@ -1160,4 +1198,9 @@ footer { display: none; }
         flex-direction: column;
         gap: 16px;
     }
+}
+
+/* Site Footer */
+.site-footer {
+    display: none;
 }
