@@ -3,6 +3,7 @@
     {{ $allProjects := where site.Pages "Section" "projects" }}
     {{ $projects := where $allProjects "Title" "!=" "Projects" }}
     {{ $sorted := sort $projects "Params.importance" "desc" }}
+    {{ $sorted = sort $sorted "Params.order" "asc" }}
     
     {{ range $sorted }}
     {{ $spanClass := "span-1" }}
