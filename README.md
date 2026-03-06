@@ -1,5 +1,7 @@
 # TalesRT Portfolio
 
+> **For AI Agents:** If you are an AI agent working on this project, read `agent_instructions/README.md` first to get up to speed quickly.
+
 Character artist portfolio built with Hugo, featuring optimized images, lazy loading, and modern web practices.
 
 ## Quick Start
