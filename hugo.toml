@@ -9,8 +9,8 @@ theme = 'talesrt'
   subtitle = """Lead Character Artist
 3D | ZBrush | Blender | Unreal | Unity"""
   description = "Portfolio of talesrt - Lead Character Artist based in Curitiba, Brazil"
-  avatar = "/images/avatar.png"
-  favicon = "/talesrt_logo.svg"
+  avatar = "/portfolio/images/avatar.png"
+  favicon = "/portfolio/talesrt_logo.svg"
   heroTagline = "Crafting characters that tell stories"
   cdnUrl = ""  # Add your CDN URL here (e.g., "https://cdn.talesrt.com")
   # Note: Email and social links are centralized in data/contact.yaml
