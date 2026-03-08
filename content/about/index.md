@@ -13,7 +13,7 @@ description: "About talesrt - Lead Character Artist"
   
   <!-- Portrait -->
   <div class="about-portrait">
-    <img src="/images/avatar.jpg" alt="Tales da Rocha Trindade">
+    <img src="/portfolio/images/avatar.jpg" alt="Tales da Rocha Trindade">
   </div>
   
   <!-- Bio -->
