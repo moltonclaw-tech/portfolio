@@ -31,22 +31,22 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-top">
-            <a href="/" class="logo-link">
+            <a href="/portfolio/" class="logo-link">
                 {{ if .Site.Params.avatar }}
                 <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}" class="sidebar-avatar">
                 {{ end }}
             </a>
             
-            <a href="/" class="name-link">
+            <a href="/portfolio/" class="name-link">
                 <h1 class="sidebar-name">{{ .Site.Params.author }}</h1>
             </a>
             
             <span class="mobile-page-title">{{ if not .IsHome }}{{ .Title | replaceRE "^talesrt - " "" }}{{ end }}</span>
             
             <nav class="sidebar-nav">
-                <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
-                <a href="/contact/">Contact</a>
-                <a href="/about/">About</a>
+                <a href="/portfolio/" class="{{ if .IsHome }}active{{ end }}">Work</a>
+                <a href="/portfolio/contact/">Contact</a>
+                <a href="/portfolio/about/">About</a>
             </nav>
         </div>
         
@@ -82,9 +82,9 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay">
         <nav class="mobile-menu">
-            <a href="/" class="{{ if .IsHome }}active{{ end }}">Work</a>
-            <a href="/contact/">Contact</a>
-            <a href="/about/">About</a>
+            <a href="/portfolio/" class="{{ if .IsHome }}active{{ end }}">Work</a>
+            <a href="/portfolio/contact/">Contact</a>
+            <a href="/portfolio/about/">About</a>
             <div class="mobile-social">
                 {{ with index .Site.Data.contact "email" }}
                 <a href="mailto:{{ . }}">Email</a>
