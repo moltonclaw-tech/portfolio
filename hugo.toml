@@ -1,4 +1,5 @@
 baseURL = 'https://moltonclaw-tech.github.io/portfolio/'
+canonifyURLs = false
 languageCode = 'en-us'
 title = 'talesrt - Character Artist'
 theme = 'talesrt'
