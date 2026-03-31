@@ -1,85 +1,147 @@
-# Agent Instructions - TalesRT Portfolio
+# Agent Instructions — TalesRT Portfolio
 
-## About This Project
+> **For:** AI Agents working on this codebase.
 
-Character artist portfolio website built with **Hugo** for Tales (TalesRT).
+## Who You're Helping
 
-**URL:** https://talesrt.com/ (when deployed)
+**Tales da Rocha Trindade** — Lead Character Artist based in Curitiba, Brazil. Specializes in character art, game pipelines, and team leadership. Portfolio URL: https://talesrt.com (or https://moltonclaw-tech.github.io/portfolio/ until custom domain is active).
 
-## Tech Stack
+## Project Overview
 
-- **Hugo** - Static site generator
-- **Theme:** talesrt (custom)
-- **Deployment:** Netlify / GitHub Pages
-- **Image Optimization:** WebP, lazy loading, blur-up placeholders
+Hugo static site generator with a **custom theme** (`themes/talesrt/`). The site is deployed to GitHub Pages at `/portfolio/` subfolder.
 
-## Key Commands
+**URL:** https://moltonclaw-tech.github.io/portfolio/
 
+## Critical Rules for AI Agents
+
+### 1. Always Check `importance` First
+
+Before touching any project frontmatter, identify the `importance` value. This controls everything:
+- **importance: 1** → Study/Bust → No page, lightbox only
+- **importance: 2-6** → Full project → Has a page
+
+### 2. Studies Are NOT Markdown Files
+
+Studies are **image files only** in `assets/studies/`. Do NOT create markdown files for studies. They are auto-rendered from the folder.
+
+### 3. Thumbnails Are Required for Projects
+
+Every project needs a `thumb.jpg` or `thumb.png` in its folder. Without it, the homepage grid shows broken images.
+
+### 4. All Images Go in the Project Folder
+
+Project images go in `content/projects/project-name/` and are referenced in frontmatter `content:` array. NOT in `static/` unless you want them as raw files.
+
+### 5. Hugo Image Processing
+
+The theme uses Hugo's resource pipeline:
+- Images referenced in frontmatter are **automatically resized** to WebP
+- Multiple resolutions are generated (srcset)
+- Blur-up (LQIP) placeholders are created
+- You should reference images by filename in frontmatter — Hugo handles the rest
+
+### 6. Rebuild Required After Changes
+
+Hugo is a **static generator**. After any content change, the site must be rebuilt:
 ```bash
-# Development
-npm run dev
-
-# Build for production
 npm run build
-
-# Clean generated files
-npm run clean
 ```
+Then commit and push the `public/` folder.
 
-## Project Structure
+## Grid System (Critical)
 
-```
-portfolio/
-├── content/           # Markdown content (projects, pages)
-├── layouts/          # Hugo templates
-├── themes/talesrt/   # Theme files
-├── static/           # Static assets (images, favicon)
-├── assets/           # Source assets (processed by Hugo)
-│   ├── css/          # CSS files
-│   └── studies/      # Study images (auto-imported to gallery)
-├── public/           # Built site (gitignored)
-├── hugo.toml         # Hugo configuration
-└── netlify.toml      # Netlify deployment config
-```
+The homepage grid is **procedural** based on `importance` parameter:
 
-## Adding Projects
+| importance | Grid Size | Behavior |
+|---|---|---|
+| 1 | 1×1 | Faded/grayscale → lightbox on click |
+| 2 | 2×2 | Slightly faded → project page |
+| 3 | 3×3 | Full → project page |
+| 4 | 4×4 | Full → project page |
+| 6 | 6×6 + featured position | Hero/featured placement |
 
-1. Create folder: `content/projects/project-name/`
-2. Add `index.md` with front matter
-3. Add thumbnail: `thumb.jpg` or `thumb.png`
-4. Reference images in content
-5. Run `npm run build`
+Sorting: by `importance` descending, then `order` ascending.
 
-### Front Matter Template
-```yaml
----
-title: "Project Name"
-date: 2026-01-01
-type: projects
-description: "Brief description"
-tags: ["zbrush", "character"]
-importance: 3
----
-```
+## Content Types
 
-## Current Status
+### Projects (`content/projects/`)
+- Each has `index.md` with frontmatter
+- Have `thumb.jpg/png` for grid thumbnail
+- May have multiple images displayed on project page
+- importance: 1 = no page (study), importance 2-6 = has page
 
-- Site is built in `public/` folder
-- Can be served locally via HTTP server on port 1314
-- Accessible on LAN at http://192.168.0.5:1314
+### Studies (`assets/studies/`)
+- Image files only (JPG, PNG)
+- No frontmatter, no markdown
+- Auto-rendered as importance-1 cards
+- Click opens lightbox
 
-## For AI Agents
+### About Page (`content/about/index.md`)
+- HTML content directly in markdown
+- Contains bio, shipped titles, journey timeline
 
-If you're working on this portfolio:
-1. Check this file for context
-2. Look at `hugo.toml` for site config
-3. Check `content/projects/` for existing projects
-4. Look at `themes/talesrt/` for customizations
+### Contact Page
+- Template-driven from `data/contact.yaml`
+- No markdown content needed
+
+## Key Files and What They Do
+
+| File | Purpose |
+|------|---------|
+| `layouts/index.html` | Homepage grid — procedural placement based on importance |
+| `themes/talesrt/layouts/_default/baseof.html` | Base HTML template with sidebar + lightbox JS |
+| `themes/talesrt/assets/css/main.css` | All styles — grid, sidebar, project pages, responsive |
+| `data/contact.yaml` | Centralized contact info + social links |
+| `hugo.toml` | Site config — baseURL, title, theme, social params |
+| `archetypes/default.md` | Template for new content files |
+
+## Important CSS Classes
+
+- `.gallery-container` — 12-column CSS Grid
+- `.span-1` through `.span-6` — grid column/row spans
+- `.project-card` — grid item
+- `.importance-1` — study behavior (lightbox, no link)
+- `.lightbox` — full-screen image overlay
+- `.sidebar` — fixed left navigation
+
+## Common Tasks
+
+### Add a New Project
+1. Create `content/projects/project-name/`
+2. Add `thumb.jpg` + project images
+3. Create `index.md` with frontmatter (importance 2-6)
+4. Build: `npm run build`
+
+### Add a Study
+1. Drop image into `assets/studies/`
+2. Build: `npm run build`
+3. Study auto-appears as faded 1×1 card
+
+### Change Grid Size of a Project
+Edit `importance` in frontmatter:
+- Higher = larger
+- importance 1 = study (no page)
+- importance 6 = featured hero position
+
+## Social Links
+
+Social links are configured in TWO places (they must match):
+1. `data/contact.yaml` → `socials[]` array (icons + URLs)
+2. `hugo.toml` → `[params.social]` (footer links)
+
+Update BOTH when changing socials.
 
 ## Deployment
 
-To deploy:
-1. Push to GitHub
-2. Connect repo to Netlify (or enable GitHub Pages)
-3. Build command: `npm run build`
-4. Publish directory: `public`
+Current: Manual build + GitHub Pages.
+- Build: `npm run build`
+- Push `public/` folder to GitHub
+- GitHub Pages serves from `/portfolio/` subfolder
+
+See `documentation/deployment.md` for full details.
+
+## Questions?
+
+If unsure about the display behavior of a project, refer to `documentation/grid-system.md`.
+For content editing, refer to `documentation/projects.md`.
+For studies, refer to `documentation/studies.md`.
