@@ -89,11 +89,20 @@ Sorting: by `importance` descending, then `order` ascending.
 | File | Purpose |
 |------|---------|
 | `layouts/index.html` | Homepage grid — procedural placement based on importance |
+| `layouts/projects/single.html` | Project detail page template |
 | `themes/talesrt/layouts/_default/baseof.html` | Base HTML template with sidebar + lightbox JS |
 | `themes/talesrt/assets/css/main.css` | All styles — grid, sidebar, project pages, responsive |
 | `data/contact.yaml` | Centralized contact info + social links |
 | `hugo.toml` | Site config — baseURL, title, theme, social params |
 | `archetypes/default.md` | Template for new content files |
+
+### Theme Override System
+
+Root `layouts/` **overrides** `themes/talesrt/layouts/`. When modifying templates:
+1. Check `layouts/` first (root overrides)
+2. Then check `themes/talesrt/` for base templates
+
+Current root overrides: `layouts/index.html`, `layouts/projects/single.html`
 
 ## Important CSS Classes
 

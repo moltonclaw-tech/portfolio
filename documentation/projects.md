@@ -80,10 +80,20 @@ content:
 - **Thumbnail:** 800×800px minimum, square aspect ratio works best
 - **Project images:** 2000px wide recommended for full detail
 - **Format:** JPG for photos, PNG for transparency if needed
-- **All images are automatically processed** by Hugo:
-  - Converted to WebP
-  - Resized to multiple resolutions (srcset)
-  - Lazy loaded with blur-up placeholder (LQIP)
+
+### Hugo Image Processing
+
+All project images referenced in frontmatter are automatically processed:
+
+| Image Type | Sizes Generated | Notes |
+|---|---|---|
+| **Thumbnails (homepage)** | 300w, 600w, 1200w | Used in grid cards |
+| **Project detail images** | 800w, 1200w, 2000w | Used on project page |
+| **All images** | WebP conversion | Automatic format optimization |
+| **Lazy loading** | Yes | IntersectionObserver |
+| **LQIP** | Yes | Blur-up placeholder |
+
+**Hugo's resource pipeline** handles all of this automatically — just reference the filename in frontmatter.
 
 ---
 

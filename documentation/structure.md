@@ -64,6 +64,16 @@ Files here are served as-is. Put images, fonts, favicons here.
 
 The custom Hugo theme containing templates and assets.
 
+### `layouts/` (Theme Override)
+
+**Important:** Root `layouts/` automatically overrides files in `themes/talesrt/layouts/`. This is standard Hugo behavior.
+
+Current overrides:
+- `layouts/index.html` — custom homepage with procedural grid
+- `layouts/projects/single.html` — custom project page
+
+When modifying templates, check `layouts/` (root) first before `themes/talesrt/`.
+
 ## Important Files
 
 - **`hugo.toml`** - Main configuration (URL, title, params)
